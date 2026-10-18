@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wisdom Education Centre | Kanpur</title>
+  <title>Wisdom Education Centre | ICSE School & Skill Institute, Kanpur</title>
   
-  <!-- Fonts matching Bright Future Reference -->
+  <!-- Premium Fonts: Playfair Display + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,21 +15,22 @@
 
   <style>
     :root {
-      --navy-dark: #071529;
+      --navy-dark: #061325;
       --navy-main: #0d223f;
       --navy-card: #132b4d;
+      --navy-gradient: linear-gradient(135deg, #061325 0%, #0d223f 100%);
       --gold-main: #e5a93c;
       --gold-hover: #cb922d;
       --gold-light: #fef7ec;
       --text-dark: #1b2533;
       --text-muted: #5e6d82;
-      --bg-cream: #fbfbf9;
+      --bg-cream: #faf9f6;
       --bg-white: #ffffff;
       --border-color: #e2e8f0;
-      --shadow-sm: 0 4px 12px rgba(7, 21, 41, 0.05);
-      --shadow-md: 0 10px 30px rgba(7, 21, 41, 0.08);
-      --shadow-lg: 0 20px 45px rgba(7, 21, 41, 0.12);
-      --transition: all 0.25s ease-in-out;
+      --shadow-sm: 0 4px 14px rgba(6, 19, 37, 0.05);
+      --shadow-md: 0 10px 30px rgba(6, 19, 37, 0.08);
+      --shadow-lg: 0 20px 45px rgba(6, 19, 37, 0.13);
+      --transition: all 0.28s ease-in-out;
     }
 
     * {
@@ -57,7 +58,7 @@
       padding: 0 20px;
     }
 
-    /* TOP UTILITY BAR */
+    /* TOP BAR */
     .top-bar {
       background: var(--navy-dark);
       color: #9db1cc;
@@ -85,12 +86,8 @@
       gap: 6px;
       transition: var(--transition);
     }
-    .top-bar a:hover {
-      color: var(--gold-main);
-    }
-    .top-bar i {
-      color: var(--gold-main);
-    }
+    .top-bar a:hover { color: var(--gold-main); }
+    .top-bar i { color: var(--gold-main); }
 
     /* NAVBAR */
     header {
@@ -98,7 +95,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
     }
     .header-inner {
       display: flex;
@@ -113,8 +110,8 @@
       text-decoration: none;
     }
     .crest-badge {
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
       background: var(--navy-main);
       border: 2px solid var(--gold-main);
       border-radius: 8px;
@@ -122,7 +119,7 @@
       align-items: center;
       justify-content: center;
       color: var(--gold-main);
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       font-weight: 800;
       box-shadow: 0 4px 10px rgba(13, 34, 63, 0.2);
     }
@@ -148,22 +145,21 @@
       gap: 22px;
       list-style: none;
     }
-    .nav-item {
+    .nav-links a {
       color: var(--navy-dark);
       text-decoration: none;
       font-size: 0.86rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      cursor: pointer;
+      transition: var(--transition);
       position: relative;
       padding: 6px 0;
-      transition: var(--transition);
     }
-    .nav-item:hover, .nav-item.active {
+    .nav-links a:hover, .nav-links a.active {
       color: var(--gold-main);
     }
-    .nav-item.active::after {
+    .nav-links a.active::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -173,24 +169,55 @@
       background: var(--gold-main);
       border-radius: 2px;
     }
-    .btn-apply-header {
+
+    /* BUTTONS */
+    .btn-gold {
       background: var(--gold-main);
       color: var(--navy-dark);
-      border: none;
+      padding: 12px 24px;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      font-size: 0.82rem;
-      padding: 10px 20px;
       border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      border: none;
       cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      box-shadow: 0 4px 14px rgba(229, 169, 60, 0.3);
       transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(229, 169, 60, 0.3);
     }
-    .btn-apply-header:hover {
+    .btn-gold:hover {
       background: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(229, 169, 60, 0.4);
     }
-    .mobile-menu-toggle {
+    .btn-navy-outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 12px 22px;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      transition: var(--transition);
+    }
+    .btn-navy-outline:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: white;
+      color: white;
+    }
+
+    .mobile-menu-btn {
       display: none;
       background: none;
       border: none;
@@ -198,38 +225,34 @@
       color: var(--navy-dark);
       cursor: pointer;
     }
-
-    /* MOBILE NAV DRAWER */
-    .mobile-nav-drawer {
+    .mobile-drawer {
       display: none;
-      background: var(--bg-white);
+      background: white;
       border-top: 1px solid var(--border-color);
       padding: 16px 20px;
     }
-    .mobile-nav-drawer.open {
-      display: block;
-    }
-    .mobile-nav-drawer a {
+    .mobile-drawer.open { display: block; }
+    .mobile-drawer a {
       display: block;
       padding: 10px 0;
       color: var(--navy-dark);
       text-decoration: none;
       font-weight: 700;
-      border-bottom: 1px solid #f1f5f9;
       text-transform: uppercase;
+      border-bottom: 1px solid #f1f5f9;
       font-size: 0.88rem;
     }
 
     /* HERO SECTION */
     .hero-section {
-      background: linear-gradient(to right, rgba(7, 21, 41, 0.92) 45%, rgba(7, 21, 41, 0.65)), 
+      background: linear-gradient(to right, rgba(6, 19, 37, 0.94) 40%, rgba(6, 19, 37, 0.65)), 
                   url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       color: white;
-      padding: 85px 0 115px;
+      padding: 95px 0 120px;
       position: relative;
     }
     .hero-content {
-      max-width: 660px;
+      max-width: 680px;
     }
     .hero-pill {
       display: inline-flex;
@@ -247,7 +270,7 @@
       margin-bottom: 18px;
     }
     .hero-title {
-      font-size: 3.5rem;
+      font-size: 3.6rem;
       font-weight: 700;
       line-height: 1.15;
       margin-bottom: 18px;
@@ -257,51 +280,15 @@
       font-style: italic;
     }
     .hero-desc {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       color: #cfdbeb;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
       line-height: 1.65;
     }
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-    }
-    .btn-gold {
-      background: var(--gold-main);
-      color: var(--navy-dark);
-      padding: 13px 26px;
-      font-weight: 800;
-      border-radius: 6px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .btn-gold:hover {
-      background: var(--gold-hover);
-    }
-    .btn-navy-outline {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      padding: 13px 24px;
-      font-weight: 700;
-      border-radius: 6px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .btn-navy-outline:hover {
-      background: rgba(255, 255, 255, 0.2);
     }
 
     /* FLOATING BADGE */
@@ -312,20 +299,20 @@
       transform: translateY(-50%);
       background: white;
       color: var(--navy-dark);
-      padding: 20px 24px;
+      padding: 22px 26px;
       border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.35);
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 16px;
       border-left: 5px solid var(--gold-main);
     }
     .legacy-badge i {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       color: var(--gold-main);
     }
     .legacy-badge h4 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       line-height: 1.2;
     }
     .legacy-badge p {
@@ -344,7 +331,7 @@
       border-radius: 10px;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      box-shadow: 0 15px 35px rgba(7, 21, 41, 0.25);
+      box-shadow: 0 15px 35px rgba(6, 19, 37, 0.25);
       border: 1px solid rgba(255, 255, 255, 0.12);
       overflow: hidden;
     }
@@ -355,8 +342,13 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      transition: var(--transition);
+      text-decoration: none;
     }
     .pillar-item:last-child { border-right: none; }
+    .pillar-item:hover {
+      background: var(--navy-card);
+    }
     .pillar-icon-box {
       width: 40px;
       height: 40px;
@@ -375,6 +367,7 @@
       font-size: 0.92rem;
       font-weight: 700;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      color: white;
     }
     .pillar-item p {
       font-size: 0.74rem;
@@ -384,7 +377,7 @@
 
     /* SECTIONS */
     section {
-      padding: 75px 0;
+      padding: 80px 0;
     }
     .section-head {
       text-align: center;
@@ -443,6 +436,7 @@
       gap: 26px;
       padding-top: 18px;
       border-top: 1px solid var(--border-color);
+      margin-bottom: 25px;
     }
     .metric-item h4 {
       font-size: 1.7rem;
@@ -459,7 +453,7 @@
     }
     .about-visual img {
       width: 100%;
-      height: 380px;
+      height: 390px;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: var(--shadow-md);
@@ -485,11 +479,9 @@
       color: var(--navy-dark);
     }
     .floating-points-card div:last-child { margin-bottom: 0; }
-    .floating-points-card i {
-      color: var(--gold-main);
-    }
+    .floating-points-card i { color: var(--gold-main); }
 
-    /* CAMPUSES HIGHLIGHT */
+    /* CAMPUSES HIGHLIGHT CARDS */
     .campuses-section {
       background: var(--bg-cream);
     }
@@ -511,11 +503,12 @@
     .c-card:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-5px);
+      border-color: var(--gold-main);
     }
     .c-header {
       background: var(--navy-dark);
       color: white;
-      padding: 22px 24px;
+      padding: 24px;
     }
     .c-badge {
       background: var(--gold-main);
@@ -530,15 +523,15 @@
       margin-bottom: 8px;
     }
     .c-header h3 {
-      font-size: 1.4rem;
-      margin-bottom: 2px;
+      font-size: 1.45rem;
+      margin-bottom: 3px;
     }
     .c-header p {
       font-size: 0.82rem;
       color: #9cb1cc;
     }
     .c-body {
-      padding: 24px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -569,8 +562,13 @@
       font-size: 0.84rem;
       color: #475569;
     }
-    .c-btn {
+    .c-btn-group {
       margin-top: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .c-btn-primary {
       text-align: center;
       background: var(--navy-main);
       color: white;
@@ -578,14 +576,28 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      border: none;
+      font-size: 0.85rem;
       transition: var(--transition);
     }
-    .c-btn:hover {
+    .c-btn-primary:hover {
       background: var(--gold-main);
       color: var(--navy-dark);
+    }
+    .c-btn-secondary {
+      text-align: center;
+      background: #f1f5f9;
+      color: var(--navy-dark);
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    .c-btn-secondary:hover {
+      background: white;
+      border-color: var(--navy-dark);
     }
 
     /* 5-STATISTIC BLUE RIBBON */
@@ -621,7 +633,7 @@
       letter-spacing: 0.8px;
     }
 
-    /* ACTIVITIES & CULTURAL FESTS */
+    /* ACTIVITIES OVERVIEW GRID */
     .events-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -663,7 +675,7 @@
       color: var(--text-muted);
     }
 
-    /* ADMISSIONS CALLOUT */
+    /* ADMISSIONS CALLOUT (BANNER 4 OF REFERENCE) */
     .admissions-banner-wrap {
       padding: 50px 0 70px;
     }
@@ -736,7 +748,6 @@
     .footer-links a {
       color: #9cb1cc;
       text-decoration: none;
-      cursor: pointer;
       transition: var(--transition);
     }
     .footer-links a:hover {
@@ -762,7 +773,7 @@
       color: #72849b;
     }
 
-    /* FLOATING WHATSAPP & CALL ON MOBILE */
+    /* MOBILE FLOATING BAR */
     .mobile-float-bar {
       position: fixed;
       bottom: 0;
@@ -785,104 +796,19 @@
       justify-content: center;
       gap: 8px;
     }
-    .btn-call-mobile {
-      background: var(--navy-dark);
-      color: white;
-    }
-    .btn-wa-mobile {
-      background: #25d366;
-      color: white;
-    }
+    .btn-call-mobile { background: var(--navy-dark); color: white; }
+    .btn-wa-mobile { background: #25d366; color: white; }
 
-    /* SPA VIEWS */
-    .page-view {
-      display: none;
-    }
-    .page-view.active-page {
-      display: block;
-    }
-
-    /* MODAL */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(7, 21, 41, 0.75);
-      backdrop-filter: blur(4px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      padding: 16px;
-    }
-    .modal-overlay.active {
-      display: flex;
-    }
-    .modal-card {
-      background: white;
-      width: 100%;
-      max-width: 520px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .modal-header {
-      background: var(--navy-dark);
-      color: white;
-      padding: 18px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .modal-header h3 { font-size: 1.2rem; }
-    .close-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-    .modal-body {
-      padding: 22px;
-    }
-    .form-box {
-      margin-bottom: 14px;
-    }
-    .form-box label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--navy-dark);
-      margin-bottom: 5px;
-    }
-    .form-box input, .form-box select, .form-box textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      font-size: 0.9rem;
-      outline: none;
-    }
-
-    /* RESPONSIVE DESIGN */
     @media (max-width: 992px) {
-      .pillars-strip {
-        grid-template-columns: repeat(3, 1fr);
-        margin-top: -30px;
-      }
-      .stat-ribbon-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .legacy-badge {
-        display: none;
-      }
+      .pillars-strip { grid-template-columns: repeat(3, 1fr); margin-top: -30px; }
+      .stat-ribbon-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .legacy-badge { display: none; }
     }
     @media (max-width: 768px) {
       .top-bar { display: none; }
       .nav-links { display: none; }
-      .mobile-menu-toggle { display: block; }
+      .mobile-menu-btn { display: block; }
       .hero-title { font-size: 2.5rem; }
       .pillars-strip { grid-template-columns: 1fr; }
       .about-split { grid-template-columns: 1fr; }
@@ -903,12 +829,12 @@
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <a href="#campuses"><i class="fa-solid fa-location-dot"></i> Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur (208021)</a>
-        <a href="tel:+916387644719"><i class="fa-solid fa-phone"></i> +91 63876 44719</a>
+        <a href="contact.html"><i class="fa-solid fa-location-dot"></i> Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur (208021)</a>[span_3](start_span)[span_3](end_span)
+        <a href="tel:+916387644719"><i class="fa-solid fa-phone"></i> +91 63876 44719</a>[span_4](start_span)[span_4](end_span)
       </div>
       <div class="top-bar-right">
-        <span><i class="fa-solid fa-clock"></i> Khandepur Branch: Mon–Sat 8:00 AM – 2:00 PM</span>
-        <a href="javascript:void(0)" onclick="openModal('apply')"><i class="fa-solid fa-user-graduate"></i> Admissions Open</a>
+        <span><i class="fa-solid fa-clock"></i> Skill Batches: Mon–Sat 8:00 AM – 2:00 PM</span>[span_5](start_span)[span_5](end_span)
+        <a href="admissions.html"><i class="fa-solid fa-user-graduate"></i> Admissions Open</a>[span_6](start_span)[span_6](end_span)
       </div>
     </div>
   </div>
@@ -916,525 +842,322 @@
   <!-- NAVBAR -->
   <header>
     <div class="container header-inner">
-      <a href="javascript:void(0)" onclick="navigate('home')" class="brand-logo">
+      <a href="index.html" class="brand-logo">
         <div class="crest-badge">W</div>
         <div class="brand-text">
           <h1>Wisdom Education</h1>
-          <span>Centre • Kanpur (ICSE)</span>
+          <span>Centre • Kanpur (ICSE)</span>[span_7](start_span)[span_7](end_span)
         </div>
       </a>
 
       <ul class="nav-links">
-        <li><a class="nav-item active" id="nav-home" onclick="navigate('home')">Home</a></li>
-        <li><a class="nav-item" id="nav-about" onclick="navigate('about')">About Us</a></li>
-        <li><a class="nav-item" id="nav-naubasta" onclick="navigate('naubasta')">Naubasta School</a></li>
-        <li><a class="nav-item" id="nav-khandepur" onclick="navigate('khandepur')">Skill Institute</a></li>
-        <li><a class="nav-item" id="nav-activities" onclick="navigate('activities')">Campus Life</a></li>
-        <li><a class="nav-item" id="nav-contact" onclick="navigate('contact')">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
 
       <div style="display:flex; align-items:center; gap:10px;">
-        <button class="btn-apply-header" onclick="openModal('apply')">Apply Now</button>
-        <button class="mobile-menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+        <a href="admissions.html" class="btn-gold">Apply Now</a>
+        <button class="mobile-menu-btn" onclick="toggleNavDrawer()"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
 
     <!-- Mobile Drawer -->
-    <div class="mobile-nav-drawer" id="mobileDrawer">
-      <a onclick="navigate('home'); toggleMenu();">Home</a>
-      <a onclick="navigate('about'); toggleMenu();">About Us</a>
-      <a onclick="navigate('naubasta'); toggleMenu();">Naubasta School (ICSE)</a>
-      <a onclick="navigate('khandepur'); toggleMenu();">Khandepur Skill Institute</a>
-      <a onclick="navigate('activities'); toggleMenu();">Events & Activities</a>
-      <a onclick="navigate('contact'); toggleMenu();">Contact Branches</a>
+    <div class="mobile-drawer" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="academics.html">Academics (Class 1-8 & Skill Hub)</a>
+      <a href="admissions.html">Admissions & Fee Guide</a>
+      <a href="gallery.html">Photo & Events Gallery</a>
+      <a href="contact.html">Contact & Locations</a>
     </div>
   </header>
 
-  <!-- ==================== VIEW 1: HOME ==================== -->
-  <main id="page-home" class="page-view active-page">
-    
-    <!-- Hero Banner -->
-    <section class="hero-section">
-      <div class="container" style="position:relative;">
-        <div class="hero-content">
-          <div class="hero-pill">
-            <i class="fa-solid fa-graduation-cap"></i> English Medium • ICSE Board
-          </div>
-          <h2 class="hero-title">Inspiring Minds.<br><span>Shaping Futures.</span></h2>
-          <p class="hero-desc">
-            A nurturing academic environment in Kanpur where children grow with strong values, ICSE curriculum excellence (Class 1 to 8), and career-ready digital skills.
-          </p>
-          <div class="hero-actions">
-            <button class="btn-gold" onclick="openModal('apply')">
-              Enroll Now <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            <a href="tel:+916387644719" class="btn-navy-outline">
-              <i class="fa-solid fa-phone"></i> +91 63876 44719
-            </a>
-          </div>
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container" style="position:relative;">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <i class="fa-solid fa-graduation-cap"></i> English Medium • ICSE Board School[span_8](start_span)[span_8](end_span)
         </div>
-
-        <div class="legacy-badge">
-          <i class="fa-solid fa-medal"></i>
-          <div>
-            <h4>Legacy of Excellence</h4>
-            <p>4.0 / 5.0 Star Rated Institution</p>
-          </div>
+        <h2 class="hero-title">Inspiring Minds.<br><span>Shaping Futures.</span>[span_9](start_span)[span_9](end_span)</h2>
+        <p class="hero-desc">
+          Kanpur's trusted destination for values-based ICSE foundational schooling (Class 1 to 8) and modern industry-ready vocational skill programs.[span_10](start_span)[span_10](end_span)
+        </p>
+        <div class="hero-buttons">
+          <a href="admissions.html" class="btn-gold">
+            <i class="fa-solid fa-paper-plane"></i> Apply for Admission
+          </a>
+          <a href="academics.html" class="btn-navy-outline">
+            <i class="fa-solid fa-book-open"></i> Explore Academics
+          </a>
         </div>
       </div>
-    </section>
 
-    <!-- 5 Pillars Strip -->
-    <div class="container">
-      <div class="pillars-strip">
-        <div class="pillar-item">
-          <div class="pillar-icon-box"><i class="fa-solid fa-brain"></i></div>
-          <h4>Holistic Education</h4>
-          <p>Academic, moral & social development.</p>
-        </div>
-        <div class="pillar-item">
-          <div class="pillar-icon-box"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <h4>Expert Educators</h4>
-          <p>Passionate teachers dedicated to every child.</p>
-        </div>
-        <div class="pillar-item">
-          <div class="pillar-icon-box"><i class="fa-solid fa-book-open"></i></div>
-          <h4>ICSE Curriculum</h4>
-          <p>Interactive learning for Class 1 to 8.</p>
-        </div>
-        <div class="pillar-item">
-          <div class="pillar-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
-          <h4>Skill Development</h4>
-          <p>Vocational, IT & Soft skills at Khandepur.</p>
-        </div>
-        <div class="pillar-item">
-          <div class="pillar-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-          <h4>Safe & Accessible</h4>
-          <p>Near Metro Pillar 159 on Hamirpur Road.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- About Section -->
-    <section>
-      <div class="container">
-        <div class="about-split">
-          <div class="about-text">
-            <span class="sub-head">About Wisdom Education Centre</span>
-            <h3>Excellence in Education<br><span>Character for Life</span></h3>
-            <p>
-              Located in Kanpur, Wisdom Education Centre operates two specialized campuses: an English-medium ICSE junior high school at Naubasta (Classes 1–8) and a vocational training institute at Khandepur Chauraha. We combine disciplined academics with practical life competencies.
-            </p>
-            <div class="metrics-row">
-              <div class="metric-item">
-                <h4>15 : 1</h4>
-                <p>Teacher-Student Focus</p>
-              </div>
-              <div class="metric-item">
-                <h4>1–8</h4>
-                <p>ICSE Elementary Grades</p>
-              </div>
-              <div class="metric-item">
-                <h4>4.0 ★</h4>
-                <p>Local Google Reviews</p>
-              </div>
-            </div>
-            <div style="margin-top:25px;">
-              <button class="btn-gold" onclick="navigate('naubasta')">Explore Naubasta School <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-
-          <div class="about-visual">
-            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Students in school" />
-            <div class="floating-points-card">
-              <div><i class="fa-solid fa-circle-check"></i> Admissions Open</div>
-              <div><i class="fa-solid fa-circle-check"></i> Near Metro Pillar 159</div>
-              <div><i class="fa-solid fa-circle-check"></i> Cultural Fest Celebrations</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Campuses Highlight -->
-    <section class="campuses-section" id="campuses">
-      <div class="container">
-        <div class="section-head">
-          <span class="sub-head">Our Campuses</span>
-          <h2 class="main-head">Two Dedicated <span>Branches in Kanpur</span></h2>
-          <p class="head-desc">Foundational school education and professional vocational development.</p>
-        </div>
-
-        <div class="campus-cards">
-          <!-- Branch 1: Naubasta -->
-          <div class="c-card">
-            <div class="c-header">
-              <span class="c-badge">School Education</span>
-              <h3>Naubasta / Saraswati Nagar Branch</h3>
-              <p>English Medium ICSE Board School (Class 1 to 8)</p>
-            </div>
-            <div class="c-body">
-              <ul class="c-list">
-                <li><i class="fa-solid fa-check"></i> <strong>Classes:</strong> Class 1 to Class 8 (Elementary & Junior High)</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Board Pattern:</strong> English Medium, ICSE Board framework</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Status:</strong> Admissions Open for the academic session</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Activities:</strong> Janmashtami, Yoga Day, Ram Navmi, Navratri, Sports</li>
-              </ul>
-              <div class="c-address-box">
-                <strong><i class="fa-solid fa-location-dot"></i> Address:</strong><br>
-                1642, Saraswati Nagar, Hamirpur Road, Naubasta (near Amrawati Palace, Metro Pillar No. 159), Kanpur, Uttar Pradesh – 208021
-              </div>
-              <button class="c-btn" onclick="navigate('naubasta')">View School Curriculum</button>
-            </div>
-          </div>
-
-          <!-- Branch 2: Khandepur -->
-          <div class="c-card">
-            <div class="c-header">
-              <span class="c-badge">Training & IT Institute</span>
-              <h3>Khandepur Chauraha Branch</h3>
-              <p>Skill Development & Vocational Training Institute</p>
-            </div>
-            <div class="c-body">
-              <ul class="c-list">
-                <li><i class="fa-solid fa-check"></i> <strong>Offerings:</strong> IT Courses, Computer Diplomas & Soft Skills</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Vocational:</strong> Management training, communication & office tools</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Timings:</strong> Mon – Sat: 8:00 AM – 2:00 PM (Sunday Closed)</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Rating:</strong> 4.0 out of 5 stars based on user reviews</li>
-              </ul>
-              <div class="c-address-box">
-                <strong><i class="fa-solid fa-location-dot"></i> Address:</strong><br>
-                Khandepur Chauraha, Kanpur, Uttar Pradesh
-              </div>
-              <button class="c-btn" onclick="navigate('khandepur')">View Skill Programs</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5-Statistic Blue Ribbon -->
-    <div class="stat-ribbon">
-      <div class="container">
-        <div class="stat-ribbon-grid">
-          <div class="stat-item">
-            <i class="fa-solid fa-building-columns"></i>
-            <h3>2</h3>
-            <p>Kanpur Campuses</p>
-          </div>
-          <div class="stat-item">
-            <i class="fa-solid fa-users"></i>
-            <h3>1000+</h3>
-            <p>Students Educated</p>
-          </div>
-          <div class="stat-item">
-            <i class="fa-solid fa-star"></i>
-            <h3>4.0 ★</h3>
-            <p>Google Rating</p>
-          </div>
-          <div class="stat-item">
-            <i class="fa-solid fa-calendar-check"></i>
-            <h3>8+</h3>
-            <p>Annual Cultural Fests</p>
-          </div>
-          <div class="stat-item">
-            <i class="fa-solid fa-award"></i>
-            <h3>100%</h3>
-            <p>Curriculum Dedication</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cultural Activities Grid -->
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <span class="sub-head">Campus Life & Co-Curricular</span>
-          <h2 class="main-head">Celebrations at <span>Wisdom Centre</span></h2>
-          <p class="head-desc">Instilling values, heritage, and mindfulness beyond regular textbooks.</p>
-        </div>
-
-        <div class="events-grid">
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-spa"></i></div>
-            <h4>Yoga Day</h4>
-            <p>Morning asanas, meditation, and healthy lifestyle habits.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-om"></i></div>
-            <h4>Janmashtami</h4>
-            <p>Bal-Gopal dress presentations, cultural music and storytelling.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-hands-praying"></i></div>
-            <h4>Ram Navmi & Navratri</h4>
-            <p>Traditional prayers, bhajans, and character workshops.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-dharmachakra"></i></div>
-            <h4>Buddha Purnima</h4>
-            <p>Teachings of peace, discipline, and non-violence.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-palette"></i></div>
-            <h4>Holi Celebrations</h4>
-            <p>Eco-friendly celebrations spreading harmony and joy.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-person-breastfeeding"></i></div>
-            <h4>Mother's & Women's Day</h4>
-            <p>Honoring mothers and women educators in our community.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Admissions Banner -->
-    <div class="container admissions-banner-wrap">
-      <div class="admissions-card">
+      <!-- Floating Badge -->
+      <div class="legacy-badge">
+        <i class="fa-solid fa-medal"></i>
         <div>
-          <span class="sub-head" style="color:var(--gold-hover);">Admissions Open</span>
-          <h3>Begin Your Journey<br>Toward a Bright Future</h3>
-          <p>Admissions are officially open for Class 1 to 8 at Naubasta & new batches are enrolling at the Khandepur Skill Institute.</p>
-          <div class="hero-actions">
-            <button class="btn-gold" onclick="openModal('apply')">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
-            <a href="tel:+916387644719" class="btn-navy-outline" style="color:var(--navy-dark); border-color:var(--navy-dark);"><i class="fa-solid fa-phone"></i> +91 63876 44719</a>
-          </div>
-        </div>
-        <div class="banner-img">
-          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Students with notebooks" />
+          <h4>Legacy of Excellence</h4>
+          <p>4.0 / 5.0 Star Rated Institution</p>[span_11](start_span)[span_11](end_span)
         </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- ==================== VIEW 2: ABOUT US ==================== -->
-  <div id="page-about" class="page-view">
-    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
-      <div class="container text-center">
-        <h2 class="serif" style="font-size: 2.6rem;">About Wisdom Education Centre</h2>
-        <p style="color:#cbd7e6; max-width:600px; margin:10px auto 0;">Fostering academic excellence and technical skills across two branches in Kanpur.</p>
-      </div>
-    </section>
+  <!-- 5 PILLARS STRIP (LINKED BUTTONS) -->
+  <div class="container">
+    <div class="pillars-strip">
+      <a href="academics.html#school" class="pillar-item">
+        <div class="pillar-icon-box"><i class="fa-solid fa-brain"></i></div>
+        <h4>Holistic Learning</h4>
+        <p>Curiosity, moral values & reasoning.</p>
+      </a>
+      <a href="academics.html" class="pillar-item">
+        <div class="pillar-icon-box"><i class="fa-solid fa-chalkboard-user"></i></div>
+        <h4>Expert Mentors</h4>
+        <p>Personalized student guidance.</p>
+      </a>
+      <a href="academics.html#school" class="pillar-item">
+        <div class="pillar-icon-box"><i class="fa-solid fa-book-open"></i></div>
+        <h4>ICSE Curriculum</h4>[span_12](start_span)[span_12](end_span)
+        <p>Class 1 to 8 syllabus mastery.</p>[span_13](start_span)[span_13](end_span)
+      </a>
+      <a href="academics.html#skills" class="pillar-item">
+        <div class="pillar-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+        <h4>Skill Development</h4>[span_14](start_span)[span_14](end_span)
+        <p>IT, Tally & Soft skills training.</p>[span_15](start_span)[span_15](end_span)
+      </a>
+      <a href="contact.html" class="pillar-item">
+        <div class="pillar-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+        <h4>Prime Location</h4>
+        <p>Near Metro Pillar 159 on Hamirpur Rd.</p>[span_16](start_span)[span_16](end_span)
+      </a>
+    </div>
+  </div>
 
-    <section>
-      <div class="container">
-        <div class="about-split">
-          <div>
-            <h3 style="font-size:2rem; color:var(--navy-dark); margin-bottom:15px;">Our Educational Vision</h3>
-            <p>Wisdom Education Centre was established to offer children in Kanpur a balanced blend of rigorous ICSE-oriented curriculum and practical value-based education. At our Hamirpur Road campus in Saraswati Nagar, Naubasta, we prepare children from Class 1 to Class 8 to be inquisitive thinkers and disciplined citizens.</p>
-            <p>Our Khandepur Chauraha skill facility bridges the technical divide, training students in modern computers, management foundations, and vocational skills.</p>
-            
-            <div style="margin-top:20px; padding:18px; background:var(--bg-cream); border-left:4px solid var(--gold-main); border-radius:6px;">
-              <h4 style="color:var(--navy-dark); margin-bottom:4px;"><i class="fa-solid fa-bullseye"></i> Mission & Values</h4>
-              <p style="font-size:0.88rem; color:#475569; margin:0;">To provide affordable, top-quality English-medium education, respect for cultural festivals, and industry-oriented vocational skills.</p>
+  <!-- ABOUT SECTION -->
+  <section>
+    <div class="container">
+      <div class="about-split">
+        <div class="about-text">
+          <span class="sub-head">About Wisdom Education Centre</span>
+          <h3>Excellence in Education<br><span>Character for Life</span></h3>
+          <p>
+            At Wisdom Education Centre Kanpur, we nurture independent thinking and high academic competence across two specialized facilities: an English-medium ICSE junior high school at Naubasta (Classes 1–8) and a vocational capability center at Khandepur Chauraha.[span_17](start_span)[span_17](end_span)
+          </p>
+          <div class="metrics-row">
+            <div class="metric-item">
+              <h4>15 : 1</h4>
+              <p>Student-Teacher Focus</p>
+            </div>
+            <div class="metric-item">
+              <h4>Class 1-8</h4>[span_18](start_span)[span_18](end_span)
+              <p>Elementary ICSE Wings</p>[span_19](start_span)[span_19](end_span)
+            </div>
+            <div class="metric-item">
+              <h4>4.0 ★</h4>[span_20](start_span)[span_20](end_span)
+              <p>Local Google Reviews</p>[span_21](start_span)[span_21](end_span)
             </div>
           </div>
           <div>
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px; box-shadow:var(--shadow-md);" alt="Classroom study" />
+            <a href="academics.html" class="btn-gold"><i class="fa-solid fa-graduation-cap"></i> View Full Curriculum</a>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Students in school" />
+          <div class="floating-points-card">
+            <div><i class="fa-solid fa-circle-check"></i> Admissions Open</div>[span_22](start_span)[span_22](end_span)
+            <div><i class="fa-solid fa-circle-check"></i> Near Metro Pillar 159</div>[span_23](start_span)[span_23](end_span)
+            <div><i class="fa-solid fa-circle-check"></i> Cultural Fest Celebrations</div>[span_24](start_span)[span_24](end_span)
           </div>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- ==================== VIEW 3: NAUBASTA SCHOOL ==================== -->
-  <div id="page-naubasta" class="page-view">
-    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
-      <div class="container text-center">
-        <span class="hero-pill">Naubasta / Saraswati Nagar</span>
-        <h2 class="serif" style="font-size: 2.6rem; margin: 10px 0;">ICSE Board School (Class 1 to 8)</h2>
-        <p style="color:#cbd7e6;">Near Amrawati Palace, Metro Pillar No. 159, Hamirpur Road, Kanpur – 208021</p>
+  <!-- TWO CAMPUSES HIGHLIGHT WITH ACTION BUTTONS -->
+  <section class="campuses-section" id="campuses">
+    <div class="container">
+      <div class="section-head">
+        <span class="sub-head">Our Campuses in Kanpur</span>
+        <h2 class="main-head">Two Centers of <span>Excellence</span></h2>
+        <p class="head-desc">Complete schooling framework and career vocational readiness under one institution.</p>
       </div>
-    </section>
 
-    <section>
-      <div class="container">
-        <div class="about-split">
-          <div>
-            <h3 style="font-size:2rem; color:var(--navy-dark); margin-bottom:15px;">Junior High School & Elementary Education</h3>
-            <p>Our Naubasta branch operates as an English-medium, ICSE-framework school for Class 1 to Class 8. We concentrate on language proficiency, mental mathematics, science curiosity, and moral development.</p>
-            <ul class="c-list" style="margin-top:15px;">
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Syllabus:</strong> ICSE Board Framework</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Grades:</strong> Class 1st to Class 8th</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Medium:</strong> Complete English Medium</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Admissions:</strong> Open for Current Academic Session</li>
+      <div class="campus-cards">
+        <!-- Campus 1: Naubasta -->
+        <div class="c-card">
+          <div class="c-header">
+            <span class="c-badge">School Education</span>
+            <h3>Naubasta / Saraswati Nagar Branch</h3>[span_25](start_span)[span_25](end_span)
+            <p>English Medium ICSE Board School (Class 1 to 8)</p>[span_26](start_span)[span_26](end_span)
+          </div>
+          <div class="c-body">
+            <ul class="c-list">
+              <li><i class="fa-solid fa-check"></i> <strong>Classes:</strong> Class 1 to Class 8 (Elementary & Junior High)</li>[span_27](start_span)[span_27](end_span)
+              <li><i class="fa-solid fa-check"></i> <strong>Medium:</strong> English Medium with Sanskrit & Hindi support</li>[span_28](start_span)[span_28](end_span)
+              <li><i class="fa-solid fa-check"></i> <strong>Status:</strong> Admissions Open for Academic Session</li>[span_29](start_span)[span_29](end_span)
+              <li><i class="fa-solid fa-check"></i> <strong>Activities:</strong> Janmashtami, Yoga Day, Ram Navmi, Navratri, Sports</li>[span_30](start_span)[span_30](end_span)
             </ul>
-            <div style="margin-top:25px;">
-              <button class="btn-gold" onclick="openModal('apply')">Apply for Admission in Naubasta</button>
+            <div class="c-address-box">
+              <strong><i class="fa-solid fa-location-dot"></i> Address:</strong><br>
+              1642, Saraswati Nagar, Hamirpur Road, Naubasta (near Amrawati Palace, Metro Pillar No. 159), Kanpur, Uttar Pradesh – 208021[span_31](start_span)[span_31](end_span)
             </div>
-          </div>
-          <div>
-            <div style="background:white; border:1px solid var(--border-color); padding:25px; border-radius:10px; box-shadow:var(--shadow-md);">
-              <h4 style="color:var(--navy-dark); font-size:1.2rem; margin-bottom:12px;">Branch Information</h4>
-              <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Address:</strong> 1642, Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur – 208021</p>
-              <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Landmark:</strong> Near Amrawati Palace, Opposite Metro Pillar No. 159</p>
-              <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Helpline:</strong> <a href="tel:+916387644719" style="color:var(--navy-main); font-weight:700;">+91 63876 44719</a></p>
-              <p style="font-size:0.9rem;"><strong>Admissions Status:</strong> <span style="color:#16a34a; font-weight:700;">Open</span></p>
+            <div class="c-btn-group">
+              <a href="admissions.html" class="c-btn-primary">Apply Online</a>
+              <a href="academics.html#school" class="c-btn-secondary">View Syllabus</a>
             </div>
           </div>
         </div>
+
+        <!-- Campus 2: Khandepur -->
+        <div class="c-card">
+          <div class="c-header">
+            <span class="c-badge">Training & IT Institute</span>
+            <h3>Khandepur Chauraha Branch</h3>[span_32](start_span)[span_32](end_span)
+            <p>Skill Development & Vocational Training Institute</p>[span_33](start_span)[span_33](end_span)
+          </div>
+          <div class="c-body">
+            <ul class="c-list">
+              <li><i class="fa-solid fa-check"></i> <strong>Offerings:</strong> IT Courses, Computer Diplomas & Soft Skills</li>[span_34](start_span)[span_34](end_span)
+              <li><i class="fa-solid fa-check"></i> <strong>Vocational:</strong> Management training, communication & office tools</li>[span_35](start_span)[span_35](end_span)
+              <li><i class="fa-solid fa-check"></i> <strong>Timings:</strong> Mon – Sat: 8:00 AM – 2:00 PM (Sunday Closed)</li>[span_36](start_span)[span_36](end_span)
+              <li><i class="fa-solid fa-check"></i> <strong>Rating:</strong> 4.0 out of 5 stars based on user reviews</li>[span_37](start_span)[span_37](end_span)
+            </ul>
+            <div class="c-address-box">
+              <strong><i class="fa-solid fa-location-dot"></i> Address:</strong><br>
+              Khandepur Chauraha, Kanpur, Uttar Pradesh[span_38](start_span)[span_38](end_span)
+            </div>
+            <div class="c-btn-group">
+              <a href="academics.html#skills" class="c-btn-primary">Skill Courses</a>
+              <a href="contact.html" class="c-btn-secondary">Visit Center</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- 5-STATISTIC RIBBON -->
+  <div class="stat-ribbon">
+    <div class="container">
+      <div class="stat-ribbon-grid">
+        <div class="stat-item">
+          <i class="fa-solid fa-building-columns"></i>
+          <h3>2</h3>
+          <p>Kanpur Campuses</p>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-users"></i>
+          <h3>1000+</h3>
+          <p>Learners Guided</p>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-star"></i>
+          <h3>4.0 ★</h3>[span_39](start_span)[span_39](end_span)
+          <p>Google Rating</p>[span_40](start_span)[span_40](end_span)
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-calendar-check"></i>
+          <h3>8+</h3>
+          <p>Annual Cultural Fests</p>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-award"></i>
+          <h3>100%</h3>
+          <p>ICSE Board Guidance</p>[span_41](start_span)[span_41](end_span)
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- ==================== VIEW 4: KHANDEPUR SKILL INSTITUTE ==================== -->
-  <div id="page-khandepur" class="page-view">
-    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
-      <div class="container text-center">
-        <span class="hero-pill">Khandepur Chauraha Branch</span>
-        <h2 class="serif" style="font-size: 2.6rem; margin: 10px 0;">Skill Development & Training Institute</h2>
-        <p style="color:#cbd7e6;">IT, Management, Soft Skills & Vocational Programs in Kanpur</p>
+  <!-- CULTURAL ACTIVITIES PREVIEW WITH GALLERY BUTTON -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="sub-head">Campus Life & Co-Curricular</span>
+        <h2 class="main-head">Traditions & <span>Celebrations</span></h2>
+        <p class="head-desc">Nurturing heritage, wellness, and creativity through vibrant school events.</p>
       </div>
-    </section>
 
-    <section>
-      <div class="container">
-        <div class="events-grid">
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <h4>Information Technology (IT)</h4>
-            <p>Computer essentials, MS Office, typing, and digital tools for office operations.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-            <h4>Computerized Accounting</h4>
-            <p>Tally basics, voucher entries, billing systems, and inventory recordkeeping.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-comments"></i></div>
-            <h4>Soft Skills & Spoken English</h4>
-            <p>Personality development, workplace etiquette, and confidence in English speaking.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-briefcase"></i></div>
-            <h4>Management Training</h4>
-            <p>Front desk management, customer relations, and business communication.</p>
-          </div>
+      <div class="events-grid">
+        <div class="e-card">
+          <div class="e-icon"><i class="fa-solid fa-spa"></i></div>
+          <h4>Yoga Day</h4>[span_42](start_span)[span_42](end_span)
+          <p>Pranayam, meditation, and healthy physical drills for students.</p>
         </div>
-
-        <div style="margin-top:35px; background:var(--bg-cream); padding:25px; border-radius:10px; border:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
-          <div>
-            <h4 style="color:var(--navy-dark); font-size:1.15rem;">Institute Hours & Rating</h4>
-            <p style="font-size:0.88rem; color:#475569;">Monday to Saturday: 8:00 AM – 2:00 PM (Sunday Closed) • Rating: ~4.0 / 5 Stars</p>
-          </div>
-          <a href="tel:+916387644719" class="btn-gold"><i class="fa-solid fa-phone"></i> Inquire for Next Batch</a>
+        <div class="e-card">
+          <div class="e-icon"><i class="fa-solid fa-om"></i></div>
+          <h4>Janmashtami</h4>[span_43](start_span)[span_43](end_span)
+          <p>Cultural dress enactments, bhajans, and festive storytelling.</p>
+        </div>
+        <div class="e-card">
+          <div class="e-icon"><i class="fa-solid fa-hands-praying"></i></div>
+          <h4>Ram Navmi & Navratri</h4>[span_44](start_span)[span_44](end_span)
+          <p>Devotional assemblies and moral value workshops.</p>
+        </div>
+        <div class="e-card">
+          <div class="e-icon"><i class="fa-solid fa-palette"></i></div>
+          <h4>Holi Celebrations</h4>[span_45](start_span)[span_45](end_span)
+          <p>Eco-friendly celebrations fostering joy and community brotherhood.</p>
         </div>
       </div>
-    </section>
-  </div>
 
-  <!-- ==================== VIEW 5: ACTIVITIES ==================== -->
-  <div id="page-activities" class="page-view">
-    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
-      <div class="container text-center">
-        <h2 class="serif" style="font-size: 2.6rem;">Activities & Cultural Events</h2>
-        <p style="color:#cbd7e6;">Celebrations that enrich culture, tradition, and physical wellness</p>
+      <div style="margin-top:35px; text-align:center;">
+        <a href="gallery.html" class="btn-navy-outline" style="color:var(--navy-dark); border-color:var(--navy-dark);">
+          <i class="fa-solid fa-images"></i> View Photo Gallery & All Events
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <div class="container">
-        <div class="events-grid">
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-spa"></i></div>
-            <h4>Yoga Day</h4>
-            <p>Special morning sessions focusing on pranayam, stretching, and concentration drills.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-om"></i></div>
-            <h4>Janmashtami</h4>
-            <p>Traditional dress competitions, bhajans, and festive enactments of Lord Krishna's stories.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-hands-praying"></i></div>
-            <h4>Ram Navmi & Navratri</h4>
-            <p>Festive prayers, moral teachings, and cultural storytelling.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-dharmachakra"></i></div>
-            <h4>Buddha Purnima</h4>
-            <p>Learning compassion, mindfulness, and the value of non-violence.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-palette"></i></div>
-            <h4>Holi Celebrations</h4>
-            <p>Eco-friendly festivities reinforcing the bond between students and teachers.</p>
-          </div>
-          <div class="e-card">
-            <div class="e-icon"><i class="fa-solid fa-person-breastfeeding"></i></div>
-            <h4>Mother's & Women's Day</h4>
-            <p>Expressing gratitude to mothers and honoring women in leadership and education.</p>
-          </div>
+  <!-- ADMISSIONS CALLOUT BANNER -->
+  <div class="container admissions-banner-wrap">
+    <div class="admissions-card">
+      <div>
+        <span class="sub-head" style="color:var(--gold-hover);">Admissions Open</span>[span_46](start_span)[span_46](end_span)
+        <h3>Begin Your Journey<br>Toward a Bright Future</h3>
+        <p>Enroll your child for Class 1 to 8 at Naubasta or register for job-oriented computer and skill courses at Khandepur today.</p>[span_47](start_span)[span_47](end_span)
+        <div class="hero-buttons">
+          <a href="admissions.html" class="btn-gold"><i class="fa-solid fa-file-signature"></i> Go to Admission Portal</a>
+          <a href="contact.html" class="btn-navy-outline" style="color:var(--navy-dark); border-color:var(--navy-dark);"><i class="fa-solid fa-location-dot"></i> Visit Campus</a>
         </div>
       </div>
-    </section>
-  </div>
-
-  <!-- ==================== VIEW 6: CONTACT ==================== -->
-  <div id="page-contact" class="page-view">
-    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
-      <div class="container text-center">
-        <h2 class="serif" style="font-size: 2.6rem;">Contact Our Kanpur Campuses</h2>
-        <p style="color:#cbd7e6;">Connect with our admissions desk or visit our centers</p>
+      <div class="banner-img">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Students with notebooks" />
       </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="campus-cards">
-          <div style="background:white; border:1px solid var(--border-color); padding:25px; border-radius:10px;">
-            <h3 style="color:var(--navy-dark); font-size:1.3rem; margin-bottom:10px;"><i class="fa-solid fa-school" style="color:var(--gold-main);"></i> Naubasta Branch (School)</h3>
-            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Type:</strong> ICSE Board School (Class 1 to 8)</p>
-            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Address:</strong> 1642, Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur – 208021</p>
-            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Landmark:</strong> Near Amrawati Palace, Metro Pillar No. 159</p>
-            <p style="font-size:0.9rem; margin-bottom:15px;"><strong>Helpline:</strong> +91 63876 44719</p>
-            <a href="tel:+916387644719" class="btn-gold" style="width:100%; text-align:center;"><i class="fa-solid fa-phone"></i> Call Naubasta Campus</a>
-          </div>
-
-          <div style="background:white; border:1px solid var(--border-color); padding:25px; border-radius:10px;">
-            <h3 style="color:var(--navy-dark); font-size:1.3rem; margin-bottom:10px;"><i class="fa-solid fa-laptop-code" style="color:var(--gold-main);"></i> Khandepur Branch (Skill Hub)</h3>
-            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Type:</strong> Skill Development & Training Institute</p>
-            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Address:</strong> Khandepur Chauraha, Kanpur, Uttar Pradesh</p>
-            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Hours:</strong> Mon – Sat: 8:00 AM – 2:00 PM (Sunday Closed)</p>
-            <p style="font-size:0.9rem; margin-bottom:15px;"><strong>Courses:</strong> IT, Management, Soft Skills, Vocational</p>
-            <a href="tel:+916387644719" class="btn-gold" style="width:100%; text-align:center;"><i class="fa-solid fa-phone"></i> Call Khandepur Office</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
     <div class="container footer-grid">
       <div class="footer-col">
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
-          <div class="crest-badge" style="width:36px; height:36px; font-size:1.1rem;">W</div>
-          <h4 style="margin:0; font-size:1.1rem; color:white;">WISDOM EDUCATION CENTRE</h4>
-        </div>
-        <p>English-medium ICSE junior high school education and modern vocational skill development institute serving Kanpur, Uttar Pradesh.</p>
+        <h4 style="color:white;">Wisdom Education Centre</h4>
+        <p>English-medium ICSE elementary school and vocational skill training institute located in Kanpur, Uttar Pradesh.</p>
       </div>
 
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4>Quick Links</h4>
         <ul class="footer-links">
-          <li><a onclick="navigate('home')">Home</a></li>
-          <li><a onclick="navigate('about')">About Us</a></li>
-          <li><a onclick="navigate('naubasta')">Naubasta School (ICSE)</a></li>
-          <li><a onclick="navigate('khandepur')">Khandepur Skill Institute</a></li>
-          <li><a onclick="navigate('activities')">Campus Activities</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="academics.html">Academics (Class 1-8)</a></li>
+          <li><a href="admissions.html">Admissions & Fees</a></li>
+          <li><a href="gallery.html">Photo Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Key Programs</h4>
         <ul class="footer-links">
-          <li><a onclick="navigate('naubasta')">Class 1 to 8 Admissions</a></li>
-          <li><a onclick="navigate('khandepur')">IT & Computer Training</a></li>
-          <li><a onclick="navigate('khandepur')">Soft Skills & Spoken English</a></li>
-          <li><a onclick="navigate('activities')">Annual Cultural Fests</a></li>
+          <li><a href="academics.html#school">ICSE Elementary Wing</a></li>
+          <li><a href="academics.html#skills">Computer & IT Diploma</a></li>
+          <li><a href="academics.html#skills">Tally & Accounting</a></li>
+          <li><a href="academics.html#skills">Spoken English</a></li>
         </ul>
       </div>
 
@@ -1442,15 +1165,15 @@
         <h4>Kanpur Campuses</h4>
         <div class="f-contact-line">
           <i class="fa-solid fa-location-dot"></i>
-          <span>1642 Saraswati Nagar, Hamirpur Rd, Naubasta (near Pillar 159), Kanpur</span>
+          <span>1642 Saraswati Nagar, Hamirpur Rd, Naubasta (near Pillar 159), Kanpur</span>[span_48](start_span)[span_48](end_span)
         </div>
         <div class="f-contact-line">
           <i class="fa-solid fa-phone"></i>
-          <span>+91 63876 44719</span>
+          <span>+91 63876 44719</span>[span_49](start_span)[span_49](end_span)
         </div>
         <div class="f-contact-line">
           <i class="fa-solid fa-clock"></i>
-          <span>Khandepur Branch: 8:00 AM – 2:00 PM</span>
+          <span>Khandepur Branch: 8:00 AM – 2:00 PM</span>[span_50](start_span)[span_50](end_span)
         </div>
       </div>
     </div>
@@ -1461,89 +1184,20 @@
     </div>
   </footer>
 
-  <!-- MOBILE FLOATING BOTTOM BAR (CALL & WHATSAPP) -->
+  <!-- MOBILE FLOATING ACTION BAR -->
   <div class="mobile-float-bar">
     <a href="tel:+916387644719" class="mobile-float-btn btn-call-mobile">
-      <i class="fa-solid fa-phone"></i> Call Now
+      <i class="fa-solid fa-phone"></i> Call School[span_51](start_span)[span_51](end_span)
     </a>
     <a href="https://wa.me/916387644719?text=Hello%2C%20I%20want%20to%20know%20more%20about%20Wisdom%20Education%20Centre" target="_blank" class="mobile-float-btn btn-wa-mobile">
       <i class="fa-brands fa-whatsapp"></i> WhatsApp
     </a>
   </div>
 
-  <!-- APPLICATION MODAL -->
-  <div class="modal-overlay" id="applyModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>Admission & Course Enquiry</h3>
-        <button class="close-btn" onclick="closeModal('apply')">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form onsubmit="handleForm(event)">
-          <div class="form-box">
-            <label>Student / Candidate Name *</label>
-            <input type="text" placeholder="Full Name" required />
-          </div>
-          <div class="form-box">
-            <label>Contact Phone Number *</label>
-            <input type="tel" placeholder="+91 63876 44719" required />
-          </div>
-          <div class="form-box">
-            <label>Select Campus / Interest *</label>
-            <select required>
-              <option value="">-- Choose Branch --</option>
-              <option value="naubasta">Naubasta Branch (School Class 1 to 8 - ICSE)</option>
-              <option value="khandepur">Khandepur Branch (Skill Development & IT)</option>
-            </select>
-          </div>
-          <div class="form-box">
-            <label>Questions / Remarks</label>
-            <textarea rows="3" placeholder="Enter inquiry details..."></textarea>
-          </div>
-          <button type="submit" class="btn-gold" style="width:100%; justify-content:center;">Submit Enquiry</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCRIPTS -->
   <script>
-    // SPA Tab Navigation
-    function navigate(id) {
-      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-page'));
-      const activeP = document.getElementById('page-' + id);
-      if (activeP) activeP.classList.add('active-page');
-
-      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-      const activeNav = document.getElementById('nav-' + id);
-      if (activeNav) activeNav.classList.add('active');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Mobile Drawer Toggle
-    function toggleMenu() {
-      const drawer = document.getElementById('mobileDrawer');
+    function toggleNavDrawer() {
+      const drawer = document.getElementById('mobileNav');
       drawer.classList.toggle('open');
-    }
-
-    // Modal Handlers
-    function openModal(type) {
-      document.getElementById('applyModal').classList.add('active');
-    }
-    function closeModal(type) {
-      document.getElementById('applyModal').classList.remove('active');
-    }
-
-    window.onclick = function(e) {
-      const modal = document.getElementById('applyModal');
-      if (e.target === modal) modal.classList.remove('active');
-    };
-
-    function handleForm(e) {
-      e.preventDefault();
-      alert("Enquiry Submitted! Wisdom Education Centre team will contact you at +91 63876 44719.");
-      closeModal('apply');
     }
   </script>
 </body>
