@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions & Fee Guide | Wisdom Education Centre Kanpur</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --navy-dark: #071529;
+      --navy-main: #0d223f;
+      --navy-card: #132b4d;
+      --gold-main: #e5a93c;
+      --gold-hover: #cb922d;
+      --gold-light: #fef7ec;
+      --text-dark: #1b2533;
+      --text-muted: #5e6d82;
+      --bg-cream: #fbfbf9;
+      --bg-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 4px 12px rgba(7, 21, 41, 0.05);
+      --shadow-md: 0 10px 30px rgba(7, 21, 41, 0.08);
+      --shadow-lg: 0 20px 45px rgba(7, 21, 41, 0.12);
+      --transition: all 0.25s ease-in-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: var(--navy-dark);
+      color: #9db1cc;
+      font-size: 0.8rem;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .top-bar a {
+      color: #cbd7e6;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .top-bar a:hover { color: var(--gold-main); }
+    .top-bar i { color: var(--gold-main); }
+
+    /* NAVBAR */
+    header {
+      background: var(--bg-white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .crest-badge {
+      width: 46px;
+      height: 46px;
+      background: var(--navy-main);
+      border: 2px solid var(--gold-main);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-main);
+      font-size: 1.4rem;
+      font-weight: 800;
+      box-shadow: 0 4px 10px rgba(13, 34, 63, 0.2);
+    }
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--navy-dark);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .brand-text span {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold-main);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--navy-dark);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      transition: var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold-main);
+    }
+    .btn-gold {
+      background: var(--gold-main);
+      color: var(--navy-dark);
+      padding: 11px 22px;
+      font-weight: 800;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      transition: var(--transition);
+    }
+    .btn-gold:hover { background: var(--gold-hover); }
+
+    /* PAGE HERO HEADER */
+    .page-hero {
+      background: linear-gradient(to right, rgba(7, 21, 41, 0.94) 40%, rgba(7, 21, 41, 0.7)), 
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 70px 0;
+      text-align: center;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229, 169, 60, 0.18);
+      border: 1px solid var(--gold-main);
+      color: #fedfa4;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .page-hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    .page-hero p {
+      color: #cfdbeb;
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+    }
+
+    /* SECTION STYLES */
+    section {
+      padding: 75px 0;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 50px;
+    }
+    .sub-head {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--gold-main);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .main-head {
+      font-size: 2.3rem;
+      color: var(--navy-dark);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .main-head span {
+      color: var(--gold-main);
+      font-style: italic;
+    }
+
+    /* 4-STEP ADMISSION PROCESS */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .step-box {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .step-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold-main);
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      background: var(--navy-dark);
+      color: var(--gold-main);
+      font-weight: 800;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      border: 2px solid var(--gold-main);
+    }
+    .step-box h4 {
+      font-size: 1.15rem;
+      color: var(--navy-dark);
+      margin-bottom: 8px;
+    }
+    .step-box p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* APPLICATION FORM & CHECKLIST SPLIT */
+    .admissions-split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .form-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 35px;
+      box-shadow: var(--shadow-md);
+    }
+    .form-card h3 {
+      font-size: 1.6rem;
+      color: var(--navy-dark);
+      margin-bottom: 6px;
+    }
+    .form-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold-main);
+      box-shadow: 0 0 0 3px rgba(229, 169, 60, 0.15);
+    }
+
+    /* DOCUMENTS CHECKLIST CARD */
+    .checklist-card {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 30px;
+    }
+    .checklist-card h4 {
+      font-size: 1.25rem;
+      color: var(--navy-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .doc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+    .doc-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: #334155;
+    }
+    .doc-list li i {
+      color: #10b981;
+      margin-top: 4px;
+      font-size: 1rem;
+    }
+    .contact-helpline-box {
+      background: var(--navy-dark);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .contact-helpline-box h5 {
+      color: var(--gold-main);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .contact-helpline-box p {
+      font-size: 0.82rem;
+      color: #cbd7e6;
+      margin-bottom: 12px;
+    }
+
+    /* FEE STRUCTURE TABLES */
+    .fee-section {
+      background: #fdfdfd;
+      border-top: 1px solid var(--border-color);
+    }
+    .fee-tables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .fee-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .fee-card-head {
+      background: var(--navy-main);
+      color: white;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .fee-card-head h4 { font-size: 1.15rem; }
+    .fee-card-head span {
+      background: var(--gold-main);
+      color: var(--navy-dark);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .fee-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .fee-table th, .fee-table td {
+      padding: 14px 20px;
+      text-align: left;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .fee-table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+    .fee-table tr:last-child td { border-bottom: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-dark);
+      color: #9cb1cc;
+      padding: 70px 0 25px;
+      font-size: 0.88rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1.2fr 1.6fr;
+      gap: 35px;
+      padding-bottom: 45px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-col h4 {
+      color: white;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(--gold-main);
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-links a {
+      color: #9cb1cc;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--gold-main);
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 22px;
+      font-size: 0.8rem;
+      color: #72849b;
+    }
+
+    /* MOBILE FLOATING BAR */
+    .mobile-float-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      display: none;
+      z-index: 999;
+      grid-template-columns: 1fr 1fr;
+    }
+    .mobile-float-btn {
+      padding: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-call-mobile { background: var(--navy-dark); color: white; }
+    .btn-wa-mobile { background: #25d366; color: white; }
+
+    @media (max-width: 992px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .fee-tables-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .top-bar { display: none; }
+      .nav-links { display: none; }
+      .admissions-split { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .mobile-float-bar { display: grid; }
+      body { padding-bottom: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>
+        <a href="index.html"><i class="fa-solid fa-location-dot"></i> Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur (208021)</a>
+      </div>
+      <div style="display:flex; gap:18px;">
+        <a href="tel:+916387644719"><i class="fa-solid fa-phone"></i> Admissions Helpline: +91 63876 44719</a>
+        <span><i class="fa-solid fa-clock"></i> Timings: 8:00 AM – 2:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="crest-badge">W</div>
+        <div class="brand-text">
+          <h1>Wisdom Education</h1>
+          <span>Centre • Kanpur</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#branches">Branches</a></li>
+        <li><a href="admissions.html" class="active">Admissions</a></li>
+        <li><a href="#fees">Fee Guide</a></li>
+        <li><a href="#documents">Requirements</a></li>
+      </ul>
+
+      <a href="#applyForm" class="btn-gold">Apply Now</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO HEADER -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-pill">
+        <i class="fa-solid fa-calendar-check"></i> Admissions Open 
+      </div>
+      <h2>Join Wisdom Education Centre</h2>
+      <p>Enroll your child for Class 1 to 8 ICSE curriculum at Naubasta or register for modern IT and vocational certification courses at Khandepur Chauraha.</p>
+    </div>
+  </section>
+
+  <!-- 4-STEP ADMISSION PROCESS -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="sub-head">Admission Guide</span>
+        <h2 class="main-head">Simple 4-Step <span>Enquiry Process</span></h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <h4>Submit Form</h4>
+          <p>Fill out the online application below or visit the campus office directly.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <h4>Campus Walkthrough</h4>
+          <p>Visit our Naubasta or Khandepur center to meet the academic counselors.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-num">3</div>
+          <h4>Interaction</h4>
+          <p>Informal interaction for Class 1–8 or course counseling for skill diploma batches.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-num">4</div>
+          <h4>Enrollment</h4>
+          <p>Submit documents, complete registration, and receive class batch schedule.</p>
+        </div>
+      </div>
+
+      <!-- FORM & CHECKLIST SPLIT -->
+      <div class="admissions-split" id="applyForm">
+        <!-- Application Form -->
+        <div class="form-card">
+          <h3>Online Admission & Registration Form</h3>
+          <p>Please enter valid details. Our administration team will contact you shortly.</p>
+
+          <form onsubmit="handleAdmissionSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Student's Full Name *</label>
+                <input type="text" placeholder="e.g. Aarav Sharma" required />
+              </div>
+              <div class="form-group">
+                <label>Parent / Guardian Name *</label>
+                <input type="text" placeholder="e.g. Rajesh Sharma" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Mobile Number *</label>
+                <input type="tel" placeholder="+91 63876 44719" required />
+              </div>
+              <div class="form-group">
+                <label>WhatsApp Number (Optional)</label>
+                <input type="tel" placeholder="+91 XXXXX XXXXX" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Select Preferred Campus *</label>
+                <select id="campusSelect" onchange="updateClassOptions()" required>
+                  <option value="">-- Choose Branch --</option>
+                  <option value="naubasta">Naubasta Branch (School: Class 1 to 8)</option>
+                  <option value="khandepur">Khandepur Branch (Skill & IT Institute)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Class / Course Applying For *</label>
+                <select id="gradeSelect" required>
+                  <option value="">-- Select Grade or Course --</option>
+                  <option value="class1-3">Class 1 to 3 (Primary Wing)</option>
+                  <option value="class4-5">Class 4 to 5 (Middle Wing)</option>
+                  <option value="class6-8">Class 6 to 8 (Junior High ICSE)</option>
+                  <option value="it">Computer & IT Diploma</option>
+                  <option value="tally">Tally & Accounting</option>
+                  <option value="spoken">Soft Skills & Spoken English</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Residential Address in Kanpur</label>
+              <input type="text" placeholder="Area / Locality (e.g., Naubasta, Kidwai Nagar, Barra)" />
+            </div>
+
+            <div class="form-group">
+              <label>Any Queries or Previous School Information</label>
+              <textarea rows="3" placeholder="Enter remarks, previous percentage, or questions..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-gold" style="width:100%; justify-content:center; padding:14px;">
+              <i class="fa-solid fa-paper-plane"></i> Submit Admission Application
+            </button>
+          </form>
+        </div>
+
+        <!-- Requirements & Checklist -->
+        <div class="checklist-card" id="documents">
+          <h4><i class="fa-solid fa-folder-open" style="color:var(--gold-main);"></i> Required Documents</h4>
+          <ul class="doc-list">
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Birth Certificate:</strong> Municipal Corporation / Nagar Nigam issued.</li>
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Passport Photos:</strong> 4 colored photos of the student & 2 of parents.</li>
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Previous Report Card:</strong> For admission into Class 2 through Class 8.</li>
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Transfer Certificate (TC):</strong> From recognized previous school.</li>
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Aadhaar Card:</strong> Photocopy of Student and Parent Aadhaar.</li>
+          </ul>
+
+          <div class="contact-helpline-box">
+            <h5>Need In-Person Assistance?</h5>
+            <p>Visit Naubasta Branch near Metro Pillar 159 or call directly:</p>
+            <a href="tel:+916387644719" class="btn-gold" style="padding:10px 18px; font-size:0.84rem;">
+              <i class="fa-solid fa-phone"></i> +91 63876 44719
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEE OVERVIEW SECTION -->
+  <section class="fee-section" id="fees">
+    <div class="container">
+      <div class="section-head">
+        <span class="sub-head">Affordable Quality Education</span>
+        <h2 class="main-head">Fee Structure <span>Overview</span></h2>
+        <p style="color:var(--text-muted); font-size:0.92rem; margin-top:8px;">Transparent and competitive fee schedules for the academic session.</p>
+      </div>
+
+      <div class="fee-tables-grid">
+        <!-- School Fees -->
+        <div class="fee-card">
+          <div class="fee-card-head">
+            <h4>Naubasta Branch (ICSE School)</h4>
+            <span>Class 1 to 8</span>
+          </div>
+          <table class="fee-table">
+            <thead>
+              <tr>
+                <th>Grade Level</th>
+                <th>Curriculum</th>
+                <th>Session Fee</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Primary Wing</strong> (Class 1 – 3)</td>
+                <td>ICSE Framework</td>
+                <td>Affordable / Monthly</td>
+              </tr>
+              <tr>
+                <td><strong>Middle Wing</strong> (Class 4 – 5)</td>
+                <td>ICSE Framework</td>
+                <td>Affordable / Monthly</td>
+              </tr>
+              <tr>
+                <td><strong>Junior High</strong> (Class 6 – 8)</td>
+                <td>ICSE Framework</td>
+                <td>Affordable / Monthly</td>
+              </tr>
+              <tr>
+                <td><strong>Registration & Prospectus</strong></td>
+                <td>One Time</td>
+                <td>Nominal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Skill Institute Fees -->
+        <div class="fee-card">
+          <div class="fee-card-head">
+            <h4>Khandepur Chauraha Branch</h4>
+            <span>Skill Institute</span>
+          </div>
+          <table class="fee-table">
+            <thead>
+              <tr>
+                <th>Course Program</th>
+                <th>Duration</th>
+                <th>Structure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Information Technology (IT)</strong></td>
+                <td>3 to 6 Months</td>
+                <td>Modular / Certificate</td>
+              </tr>
+              <tr>
+                <td><strong>Computerized Accounting / Tally</strong></td>
+                <td>2 to 3 Months</td>
+                <td>Hands-on Practical</td>
+              </tr>
+              <tr>
+                <td><strong>Spoken English & Soft Skills</strong></td>
+                <td>2 Months</td>
+                <td>Activity Batches</td>
+              </tr>
+              <tr>
+                <td><strong>Office Management Diploma</strong></td>
+                <td>6 Months</td>
+                <td>Comprehensive</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4 style="color:white;">Wisdom Education Centre</h4>
+        <p>An esteemed ICSE-aligned English-medium junior high school and vocational skill training institute located in Kanpur, Uttar Pradesh.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#campuses">Naubasta Branch</a></li>
+          <li><a href="index.html#campuses">Khandepur Branch</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Admissions</h4>
+        <ul class="footer-links">
+          <li><a href="#applyForm">Online Application</a></li>
+          <li><a href="#fees">Fee Guide</a></li>
+          <li><a href="#documents">Document List</a></li>
+          <li><a href="tel:+916387644719">Direct Helpline</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Campus Locations</h4>
+        <p><i class="fa-solid fa-location-dot" style="color:var(--gold-main);"></i> 1642, Saraswati Nagar, Hamirpur Rd, Naubasta (near Pillar 159), Kanpur</p>
+        <p style="margin-top:8px;"><i class="fa-solid fa-phone" style="color:var(--gold-main);"></i> +91 63876 44719</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© Wisdom Education Centre, Kanpur. All rights reserved.</p>
+      <p>ICSE Board School & Vocational Center</p>
+    </div>
+  </footer>
+
+  <!-- MOBILE FLOATING BOTTOM BAR -->
+  <div class="mobile-float-bar">
+    <a href="tel:+916387644719" class="mobile-float-btn btn-call-mobile">
+      <i class="fa-solid fa-phone"></i> Call Admission Office
+    </a>
+    <a href="https://wa.me/916387644719?text=Hello%2C%20I%20am%20interested%20in%20Admission%20at%20Wisdom%20Education%20Centre" target="_blank" class="mobile-float-btn btn-wa-mobile">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+  </div>
+
+  <script>
+    function updateClassOptions() {
+      const campus = document.getElementById('campusSelect').value;
+      const grade = document.getElementById('gradeSelect');
+      
+      if (campus === 'naubasta') {
+        grade.innerHTML = `
+          <option value="class1-3">Class 1 to 3 (Primary Wing)</option>
+          <option value="class4-5">Class 4 to 5 (Middle Wing)</option>
+          <option value="class6-8">Class 6 to 8 (Junior High ICSE)</option>
+        `;
+      } else if (campus === 'khandepur') {
+        grade.innerHTML = `
+          <option value="it">Computer & IT Diploma</option>
+          <option value="tally">Tally & Accounting</option>
+          <option value="spoken">Soft Skills & Spoken English</option>
+          <option value="mgmt">Office Management Training</option>
+        `;
+      } else {
+        grade.innerHTML = `<option value="">-- Select Grade or Course --</option>`;
+      }
+    }
+
+    function handleAdmissionSubmit(e) {
+      e.preventDefault();
+      alert("Application Submitted Successfully! The Wisdom Education Centre admission desk will call you back on your provided number (+91 63876 44719).");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
