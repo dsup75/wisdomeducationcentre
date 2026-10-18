@@ -1,154 +1,1550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wisdom Education Centre | School in Naubasta, Kanpur</title>
-  <meta name="description" content="Wisdom Education Centre, Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur. School hours Mon–Sat, 8 AM – 2 PM. Admission enquiry online.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wisdom Education Centre | Kanpur</title>
+  
+  <!-- Fonts matching Bright Future Reference -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --navy-dark: #071529;
+      --navy-main: #0d223f;
+      --navy-card: #132b4d;
+      --gold-main: #e5a93c;
+      --gold-hover: #cb922d;
+      --gold-light: #fef7ec;
+      --text-dark: #1b2533;
+      --text-muted: #5e6d82;
+      --bg-cream: #fbfbf9;
+      --bg-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 4px 12px rgba(7, 21, 41, 0.05);
+      --shadow-md: 0 10px 30px rgba(7, 21, 41, 0.08);
+      --shadow-lg: 0 20px 45px rgba(7, 21, 41, 0.12);
+      --transition: all 0.25s ease-in-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* TOP UTILITY BAR */
+    .top-bar {
+      background: var(--navy-dark);
+      color: #9db1cc;
+      font-size: 0.8rem;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .top-bar-left, .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .top-bar a {
+      color: #cbd7e6;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .top-bar a:hover {
+      color: var(--gold-main);
+    }
+    .top-bar i {
+      color: var(--gold-main);
+    }
+
+    /* NAVBAR */
+    header {
+      background: var(--bg-white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .crest-badge {
+      width: 46px;
+      height: 46px;
+      background: var(--navy-main);
+      border: 2px solid var(--gold-main);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-main);
+      font-size: 1.4rem;
+      font-weight: 800;
+      box-shadow: 0 4px 10px rgba(13, 34, 63, 0.2);
+    }
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--navy-dark);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .brand-text span {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold-main);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+    .nav-item {
+      color: var(--navy-dark);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      position: relative;
+      padding: 6px 0;
+      transition: var(--transition);
+    }
+    .nav-item:hover, .nav-item.active {
+      color: var(--gold-main);
+    }
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold-main);
+      border-radius: 2px;
+    }
+    .btn-apply-header {
+      background: var(--gold-main);
+      color: var(--navy-dark);
+      border: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 0.82rem;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(229, 169, 60, 0.3);
+    }
+    .btn-apply-header:hover {
+      background: var(--gold-hover);
+    }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--navy-dark);
+      cursor: pointer;
+    }
+
+    /* MOBILE NAV DRAWER */
+    .mobile-nav-drawer {
+      display: none;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-color);
+      padding: 16px 20px;
+    }
+    .mobile-nav-drawer.open {
+      display: block;
+    }
+    .mobile-nav-drawer a {
+      display: block;
+      padding: 10px 0;
+      color: var(--navy-dark);
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      background: linear-gradient(to right, rgba(7, 21, 41, 0.92) 45%, rgba(7, 21, 41, 0.65)), 
+                  url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 85px 0 115px;
+      position: relative;
+    }
+    .hero-content {
+      max-width: 660px;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229, 169, 60, 0.18);
+      border: 1px solid var(--gold-main);
+      color: #fedfa4;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: var(--gold-main);
+      font-style: italic;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #cfdbeb;
+      margin-bottom: 30px;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-gold {
+      background: var(--gold-main);
+      color: var(--navy-dark);
+      padding: 13px 26px;
+      font-weight: 800;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-gold:hover {
+      background: var(--gold-hover);
+    }
+    .btn-navy-outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 13px 24px;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-navy-outline:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* FLOATING BADGE */
+    .legacy-badge {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      color: var(--navy-dark);
+      padding: 20px 24px;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-left: 5px solid var(--gold-main);
+    }
+    .legacy-badge i {
+      font-size: 2.4rem;
+      color: var(--gold-main);
+    }
+    .legacy-badge h4 {
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+    .legacy-badge p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* 5 PILLARS STRIP */
+    .pillars-strip {
+      max-width: 1180px;
+      margin: -50px auto 0;
+      position: relative;
+      z-index: 20;
+      background: var(--navy-main);
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      box-shadow: 0 15px 35px rgba(7, 21, 41, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+    }
+    .pillar-item {
+      padding: 22px 18px;
+      color: white;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pillar-item:last-child { border-right: none; }
+    .pillar-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(229, 169, 60, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+    .pillar-icon-box i {
+      color: var(--gold-main);
+      font-size: 1.1rem;
+    }
+    .pillar-item h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .pillar-item p {
+      font-size: 0.74rem;
+      color: #9cb1cc;
+      line-height: 1.35;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 75px 0;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 50px;
+    }
+    .sub-head {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--gold-main);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .main-head {
+      font-size: 2.3rem;
+      color: var(--navy-dark);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .main-head span {
+      color: var(--gold-main);
+      font-style: italic;
+    }
+    .head-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* ABOUT SECTION (SPLIT) */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 45px;
+      align-items: center;
+    }
+    .about-text h3 {
+      font-size: 2.1rem;
+      color: var(--navy-dark);
+      margin-bottom: 15px;
+      line-height: 1.25;
+    }
+    .about-text h3 span {
+      color: var(--gold-main);
+      font-style: italic;
+    }
+    .about-text p {
+      color: #475569;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .metrics-row {
+      display: flex;
+      gap: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-color);
+    }
+    .metric-item h4 {
+      font-size: 1.7rem;
+      color: var(--navy-main);
+      font-weight: 800;
+    }
+    .metric-item p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-visual img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+    .floating-points-card {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: white;
+      padding: 18px 22px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+      border-left: 4px solid var(--gold-main);
+      max-width: 250px;
+    }
+    .floating-points-card div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+    .floating-points-card div:last-child { margin-bottom: 0; }
+    .floating-points-card i {
+      color: var(--gold-main);
+    }
+
+    /* CAMPUSES HIGHLIGHT */
+    .campuses-section {
+      background: var(--bg-cream);
+    }
+    .campus-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .c-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .c-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-5px);
+    }
+    .c-header {
+      background: var(--navy-dark);
+      color: white;
+      padding: 22px 24px;
+    }
+    .c-badge {
+      background: var(--gold-main);
+      color: var(--navy-dark);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .c-header h3 {
+      font-size: 1.4rem;
+      margin-bottom: 2px;
+    }
+    .c-header p {
+      font-size: 0.82rem;
+      color: #9cb1cc;
+    }
+    .c-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-grow: 1;
+    }
+    .c-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .c-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #334155;
+    }
+    .c-list li i {
+      color: var(--gold-main);
+      margin-top: 4px;
+    }
+    .c-address-box {
+      background: #f8fafc;
+      border-left: 3px solid var(--navy-main);
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      color: #475569;
+    }
+    .c-btn {
+      margin-top: auto;
+      text-align: center;
+      background: var(--navy-main);
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .c-btn:hover {
+      background: var(--gold-main);
+      color: var(--navy-dark);
+    }
+
+    /* 5-STATISTIC BLUE RIBBON */
+    .stat-ribbon {
+      background: var(--navy-main);
+      color: white;
+      padding: 50px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .stat-ribbon-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      text-align: center;
+      gap: 15px;
+    }
+    .stat-item i {
+      font-size: 1.8rem;
+      color: var(--gold-main);
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-item p {
+      font-size: 0.78rem;
+      color: #9cb1cc;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ACTIVITIES & CULTURAL FESTS */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 18px;
+    }
+    .e-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 22px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .e-card:hover {
+      border-color: var(--gold-main);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .e-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      color: var(--gold-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 1.3rem;
+    }
+    .e-card h4 {
+      font-size: 1.1rem;
+      color: var(--navy-dark);
+      margin-bottom: 4px;
+    }
+    .e-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* ADMISSIONS CALLOUT */
+    .admissions-banner-wrap {
+      padding: 50px 0 70px;
+    }
+    .admissions-card {
+      background: linear-gradient(135deg, #fdfcf9 0%, #ffffff 100%);
+      border: 1px solid #ebd9b8;
+      border-radius: 14px;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .admissions-card h3 {
+      font-size: 2.2rem;
+      color: var(--navy-dark);
+      line-height: 1.2;
+      margin: 8px 0 14px;
+    }
+    .admissions-card p {
+      color: #475569;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    .banner-img img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-dark);
+      color: #9cb1cc;
+      padding: 70px 0 25px;
+      font-size: 0.88rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1.2fr 1.6fr;
+      gap: 35px;
+      padding-bottom: 45px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-col h4 {
+      color: white;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(--gold-main);
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-links a {
+      color: #9cb1cc;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--gold-main);
+      padding-left: 4px;
+    }
+    .f-contact-line {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.84rem;
+    }
+    .f-contact-line i {
+      color: var(--gold-main);
+      margin-top: 3px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 22px;
+      font-size: 0.8rem;
+      color: #72849b;
+    }
+
+    /* FLOATING WHATSAPP & CALL ON MOBILE */
+    .mobile-float-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      display: none;
+      z-index: 999;
+      grid-template-columns: 1fr 1fr;
+    }
+    .mobile-float-btn {
+      padding: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-call-mobile {
+      background: var(--navy-dark);
+      color: white;
+    }
+    .btn-wa-mobile {
+      background: #25d366;
+      color: white;
+    }
+
+    /* SPA VIEWS */
+    .page-view {
+      display: none;
+    }
+    .page-view.active-page {
+      display: block;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 21, 41, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 16px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-card {
+      background: white;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-header {
+      background: var(--navy-dark);
+      color: white;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h3 { font-size: 1.2rem; }
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .modal-body {
+      padding: 22px;
+    }
+    .form-box {
+      margin-bottom: 14px;
+    }
+    .form-box label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: 5px;
+    }
+    .form-box input, .form-box select, .form-box textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .pillars-strip {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: -30px;
+      }
+      .stat-ribbon-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .legacy-badge {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .top-bar { display: none; }
+      .nav-links { display: none; }
+      .mobile-menu-toggle { display: block; }
+      .hero-title { font-size: 2.5rem; }
+      .pillars-strip { grid-template-columns: 1fr; }
+      .about-split { grid-template-columns: 1fr; }
+      .floating-points-card { position: static; margin-top: 15px; max-width: 100%; }
+      .campus-cards { grid-template-columns: 1fr; }
+      .stat-ribbon-grid { grid-template-columns: repeat(2, 1fr); }
+      .admissions-card { grid-template-columns: 1fr; padding: 28px 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .mobile-float-bar { display: grid; }
+      body { padding-bottom: 50px; }
+    }
+  </style>
 </head>
 <body>
-  <div id="site-header"></div>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <a href="#campuses"><i class="fa-solid fa-location-dot"></i> Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur (208021)</a>
+        <a href="tel:+916387644719"><i class="fa-solid fa-phone"></i> +91 63876 44719</a>
+      </div>
+      <div class="top-bar-right">
+        <span><i class="fa-solid fa-clock"></i> Khandepur Branch: Mon–Sat 8:00 AM – 2:00 PM</span>
+        <a href="javascript:void(0)" onclick="openModal('apply')"><i class="fa-solid fa-user-graduate"></i> Admissions Open</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container header-inner">
+      <a href="javascript:void(0)" onclick="navigate('home')" class="brand-logo">
+        <div class="crest-badge">W</div>
+        <div class="brand-text">
+          <h1>Wisdom Education</h1>
+          <span>Centre • Kanpur (ICSE)</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a class="nav-item active" id="nav-home" onclick="navigate('home')">Home</a></li>
+        <li><a class="nav-item" id="nav-about" onclick="navigate('about')">About Us</a></li>
+        <li><a class="nav-item" id="nav-naubasta" onclick="navigate('naubasta')">Naubasta School</a></li>
+        <li><a class="nav-item" id="nav-khandepur" onclick="navigate('khandepur')">Skill Institute</a></li>
+        <li><a class="nav-item" id="nav-activities" onclick="navigate('activities')">Campus Life</a></li>
+        <li><a class="nav-item" id="nav-contact" onclick="navigate('contact')">Contact</a></li>
+      </ul>
+
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="btn-apply-header" onclick="openModal('apply')">Apply Now</button>
+        <button class="mobile-menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <a onclick="navigate('home'); toggleMenu();">Home</a>
+      <a onclick="navigate('about'); toggleMenu();">About Us</a>
+      <a onclick="navigate('naubasta'); toggleMenu();">Naubasta School (ICSE)</a>
+      <a onclick="navigate('khandepur'); toggleMenu();">Khandepur Skill Institute</a>
+      <a onclick="navigate('activities'); toggleMenu();">Events & Activities</a>
+      <a onclick="navigate('contact'); toggleMenu();">Contact Branches</a>
+    </div>
+  </header>
+
+  <!-- ==================== VIEW 1: HOME ==================== -->
+  <main id="page-home" class="page-view active-page">
+    
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="container" style="position:relative;">
+        <div class="hero-content">
+          <div class="hero-pill">
+            <i class="fa-solid fa-graduation-cap"></i> English Medium • ICSE Board
+          </div>
+          <h2 class="hero-title">Inspiring Minds.<br><span>Shaping Futures.</span></h2>
+          <p class="hero-desc">
+            A nurturing academic environment in Kanpur where children grow with strong values, ICSE curriculum excellence (Class 1 to 8), and career-ready digital skills.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-gold" onclick="openModal('apply')">
+              Enroll Now <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <a href="tel:+916387644719" class="btn-navy-outline">
+              <i class="fa-solid fa-phone"></i> +91 63876 44719
+            </a>
+          </div>
+        </div>
+
+        <div class="legacy-badge">
+          <i class="fa-solid fa-medal"></i>
+          <div>
+            <h4>Legacy of Excellence</h4>
+            <p>4.0 / 5.0 Star Rated Institution</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 Pillars Strip -->
     <div class="container">
-      <div class="hero-text">
-        <span class="eyebrow">Welcome to Wisdom Education Centre</span>
-        <h1>Inspiring Minds.<br><span class="gold">Shaping Futures.</span></h1>
-        <p>A school in Saraswati Nagar, Naubasta, where children come to learn, grow and discover what they can do.</p>
-        <div class="hero-btns">
-          <a href="about.html" class="btn btn-navy">Discover Our School
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="admission.html" class="btn btn-outline">Admission Enquiry</a>
+      <div class="pillars-strip">
+        <div class="pillar-item">
+          <div class="pillar-icon-box"><i class="fa-solid fa-brain"></i></div>
+          <h4>Holistic Education</h4>
+          <p>Academic, moral & social development.</p>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon-box"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h4>Expert Educators</h4>
+          <p>Passionate teachers dedicated to every child.</p>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon-box"><i class="fa-solid fa-book-open"></i></div>
+          <h4>ICSE Curriculum</h4>
+          <p>Interactive learning for Class 1 to 8.</p>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+          <h4>Skill Development</h4>
+          <p>Vocational, IT & Soft skills at Khandepur.</p>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>Safe & Accessible</h4>
+          <p>Near Metro Pillar 159 on Hamirpur Road.</p>
         </div>
       </div>
-      <div class="hero-img">
-        <img src="https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Children in school uniform sitting in a classroom">
-        <div class="hero-badge">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-          <div><small>School Hours</small><b>8 AM – 2 PM</b></div>
+    </div>
+
+    <!-- About Section -->
+    <section>
+      <div class="container">
+        <div class="about-split">
+          <div class="about-text">
+            <span class="sub-head">About Wisdom Education Centre</span>
+            <h3>Excellence in Education<br><span>Character for Life</span></h3>
+            <p>
+              Located in Kanpur, Wisdom Education Centre operates two specialized campuses: an English-medium ICSE junior high school at Naubasta (Classes 1–8) and a vocational training institute at Khandepur Chauraha. We combine disciplined academics with practical life competencies.
+            </p>
+            <div class="metrics-row">
+              <div class="metric-item">
+                <h4>15 : 1</h4>
+                <p>Teacher-Student Focus</p>
+              </div>
+              <div class="metric-item">
+                <h4>1–8</h4>
+                <p>ICSE Elementary Grades</p>
+              </div>
+              <div class="metric-item">
+                <h4>4.0 ★</h4>
+                <p>Local Google Reviews</p>
+              </div>
+            </div>
+            <div style="margin-top:25px;">
+              <button class="btn-gold" onclick="navigate('naubasta')">Explore Naubasta School <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="about-visual">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Students in school" />
+            <div class="floating-points-card">
+              <div><i class="fa-solid fa-circle-check"></i> Admissions Open</div>
+              <div><i class="fa-solid fa-circle-check"></i> Near Metro Pillar 159</div>
+              <div><i class="fa-solid fa-circle-check"></i> Cultural Fest Celebrations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campuses Highlight -->
+    <section class="campuses-section" id="campuses">
+      <div class="container">
+        <div class="section-head">
+          <span class="sub-head">Our Campuses</span>
+          <h2 class="main-head">Two Dedicated <span>Branches in Kanpur</span></h2>
+          <p class="head-desc">Foundational school education and professional vocational development.</p>
+        </div>
+
+        <div class="campus-cards">
+          <!-- Branch 1: Naubasta -->
+          <div class="c-card">
+            <div class="c-header">
+              <span class="c-badge">School Education</span>
+              <h3>Naubasta / Saraswati Nagar Branch</h3>
+              <p>English Medium ICSE Board School (Class 1 to 8)</p>
+            </div>
+            <div class="c-body">
+              <ul class="c-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Classes:</strong> Class 1 to Class 8 (Elementary & Junior High)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Board Pattern:</strong> English Medium, ICSE Board framework</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Status:</strong> Admissions Open for the academic session</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Activities:</strong> Janmashtami, Yoga Day, Ram Navmi, Navratri, Sports</li>
+              </ul>
+              <div class="c-address-box">
+                <strong><i class="fa-solid fa-location-dot"></i> Address:</strong><br>
+                1642, Saraswati Nagar, Hamirpur Road, Naubasta (near Amrawati Palace, Metro Pillar No. 159), Kanpur, Uttar Pradesh – 208021
+              </div>
+              <button class="c-btn" onclick="navigate('naubasta')">View School Curriculum</button>
+            </div>
+          </div>
+
+          <!-- Branch 2: Khandepur -->
+          <div class="c-card">
+            <div class="c-header">
+              <span class="c-badge">Training & IT Institute</span>
+              <h3>Khandepur Chauraha Branch</h3>
+              <p>Skill Development & Vocational Training Institute</p>
+            </div>
+            <div class="c-body">
+              <ul class="c-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Offerings:</strong> IT Courses, Computer Diplomas & Soft Skills</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Vocational:</strong> Management training, communication & office tools</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Timings:</strong> Mon – Sat: 8:00 AM – 2:00 PM (Sunday Closed)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Rating:</strong> 4.0 out of 5 stars based on user reviews</li>
+              </ul>
+              <div class="c-address-box">
+                <strong><i class="fa-solid fa-location-dot"></i> Address:</strong><br>
+                Khandepur Chauraha, Kanpur, Uttar Pradesh
+              </div>
+              <button class="c-btn" onclick="navigate('khandepur')">View Skill Programs</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Statistic Blue Ribbon -->
+    <div class="stat-ribbon">
+      <div class="container">
+        <div class="stat-ribbon-grid">
+          <div class="stat-item">
+            <i class="fa-solid fa-building-columns"></i>
+            <h3>2</h3>
+            <p>Kanpur Campuses</p>
+          </div>
+          <div class="stat-item">
+            <i class="fa-solid fa-users"></i>
+            <h3>1000+</h3>
+            <p>Students Educated</p>
+          </div>
+          <div class="stat-item">
+            <i class="fa-solid fa-star"></i>
+            <h3>4.0 ★</h3>
+            <p>Google Rating</p>
+          </div>
+          <div class="stat-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            <h3>8+</h3>
+            <p>Annual Cultural Fests</p>
+          </div>
+          <div class="stat-item">
+            <i class="fa-solid fa-award"></i>
+            <h3>100%</h3>
+            <p>Curriculum Dedication</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FEATURE STRIP -->
-  <section class="features"><div class="container">
-    <div class="features-box">
-      <div class="feature">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-        <div><b>School Hours</b><p>Monday to Saturday, 8:00 AM – 2:00 PM</p></div>
-      </div>
-      <div class="feature">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-        <div><b>Easy to Reach</b><p>Saraswati Nagar, Hamirpur Road, Naubasta</p></div>
-      </div>
-      <div class="feature">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
-        <div><b>Online Enquiry</b><p>Send an admission enquiry from your phone</p></div>
-      </div>
-      <div class="feature">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
-        <div><b>Notice Board</b><p>School updates and announcements in one place</p></div>
-      </div>
-    </div>
-  </div></section>
+    <!-- Cultural Activities Grid -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="sub-head">Campus Life & Co-Curricular</span>
+          <h2 class="main-head">Celebrations at <span>Wisdom Centre</span></h2>
+          <p class="head-desc">Instilling values, heritage, and mindfulness beyond regular textbooks.</p>
+        </div>
 
-  <!-- ABOUT -->
-  <section class="section"><div class="container about-grid">
-    <div class="about-text">
-      <span class="eyebrow">About Our School</span>
-      <h2>Learning in a Caring <span class="gold">Environment</span></h2>
-      <p>Wisdom Education Centre is located at 1642, Saraswati Nagar, on Hamirpur Road in Naubasta, Kanpur. Families can visit the school office during school hours to learn about classes, admissions and fees.</p>
-      <a href="about.html" class="btn btn-navy">Learn More About Us</a>
-    </div>
-    <div class="about-img">
-      <img src="https://images.pexels.com/photos/34655955/pexels-photo-34655955.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Colourful school corridor">
-    </div>
-    <div class="info-cards">
-      <div class="info-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
-        <div><b>Mon – Sat</b><small>School days</small></div>
+        <div class="events-grid">
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-spa"></i></div>
+            <h4>Yoga Day</h4>
+            <p>Morning asanas, meditation, and healthy lifestyle habits.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-om"></i></div>
+            <h4>Janmashtami</h4>
+            <p>Bal-Gopal dress presentations, cultural music and storytelling.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-hands-praying"></i></div>
+            <h4>Ram Navmi & Navratri</h4>
+            <p>Traditional prayers, bhajans, and character workshops.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+            <h4>Buddha Purnima</h4>
+            <p>Teachings of peace, discipline, and non-violence.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-palette"></i></div>
+            <h4>Holi Celebrations</h4>
+            <p>Eco-friendly celebrations spreading harmony and joy.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-person-breastfeeding"></i></div>
+            <h4>Mother's & Women's Day</h4>
+            <p>Honoring mothers and women educators in our community.</p>
+          </div>
+        </div>
       </div>
-      <div class="info-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <div><b>8 AM – 2 PM</b><small>School timing</small></div>
-      </div>
-      <div class="info-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-        <div><b>63876 44719</b><small>School office</small></div>
-      </div>
-    </div>
-  </div></section>
+    </section>
 
-  <!-- SCHOOL LIFE -->
-  <!-- EDIT: school se classes confirm karke ye cards update karna -->
-  <section class="section cream"><div class="container">
-    <div class="section-head">
-      <span class="eyebrow">School Life</span>
-      <h2>Discover Wisdom Education Centre</h2>
-      <p>A glimpse of learning, activities and celebrations at school.</p>
-    </div>
-    <div class="cards">
-      <a href="academics.html" class="card">
-        <img src="https://images.pexels.com/photos/20556421/pexels-photo-20556421.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Young children smiling at school">
-        <div class="card-body"><h3>Early Learning</h3><p>A friendly start for young learners.</p><span class="tag">Ask for details</span></div>
-      </a>
-      <a href="academics.html" class="card">
-        <img src="https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Students learning in a classroom">
-        <div class="card-body"><h3>Classroom Learning</h3><p>Building strong basics in every subject.</p><span class="tag">Ask for details</span></div>
-      </a>
-      <a href="gallery.html" class="card">
-        <img src="https://images.pexels.com/photos/31864391/pexels-photo-31864391.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Student pointing at a map of India">
-        <div class="card-body"><h3>Curious Minds</h3><p>Learning by asking, exploring and doing.</p><span class="tag">View gallery</span></div>
-      </a>
-      <a href="gallery.html" class="card">
-        <img src="https://images.pexels.com/photos/28389321/pexels-photo-28389321.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Children at a cultural school event">
-        <div class="card-body"><h3>Celebrations</h3><p>Festivals and events through the year.</p><span class="tag">View gallery</span></div>
-      </a>
-    </div>
-    <div class="center"><a href="academics.html" class="btn btn-navy">Explore Academics</a></div>
-  </div></section>
-
-  <!-- FACTS BAND -->
-  <section class="section" style="padding-bottom:0"><div class="container">
-    <div class="band">
-      <div><b>6 Days</b><small>School week, Mon – Sat</small></div>
-      <div><b>8 – 2</b><small>School hours</small></div>
-      <div><b>Naubasta</b><small>Saraswati Nagar, Kanpur</small></div>
-      <div><b>Online</b><small>Admission enquiry</small></div>
-    </div>
-  </div></section>
-
-  <!-- LATEST NOTICES -->
-  <section class="section"><div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Notice Board</span>
-      <h2>Latest Updates</h2>
-    </div>
-    <div class="notice-list" id="noticeList" data-limit="3"></div>
-    <div class="center"><a href="notices.html" class="btn btn-outline">All Notices</a></div>
-  </div></section>
-
-  <!-- ADMISSION CTA -->
-  <section class="cta-split">
-    <img src="https://images.pexels.com/photos/3231358/pexels-photo-3231358.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students in uniform listening in class">
-    <div class="cta-text">
-      <span class="eyebrow">Admissions</span>
-      <h2>Begin Your Child's Journey With Us</h2>
-      <p>Send an enquiry online or call the school office. We will share details about classes, fees and the admission process.</p>
-      <div class="hero-btns">
-        <a href="admission.html" class="btn btn-gold">Apply Now
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="tel:+916387644719" class="btn btn-outline">Call School</a>
+    <!-- Admissions Banner -->
+    <div class="container admissions-banner-wrap">
+      <div class="admissions-card">
+        <div>
+          <span class="sub-head" style="color:var(--gold-hover);">Admissions Open</span>
+          <h3>Begin Your Journey<br>Toward a Bright Future</h3>
+          <p>Admissions are officially open for Class 1 to 8 at Naubasta & new batches are enrolling at the Khandepur Skill Institute.</p>
+          <div class="hero-actions">
+            <button class="btn-gold" onclick="openModal('apply')">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+            <a href="tel:+916387644719" class="btn-navy-outline" style="color:var(--navy-dark); border-color:var(--navy-dark);"><i class="fa-solid fa-phone"></i> +91 63876 44719</a>
+          </div>
+        </div>
+        <div class="banner-img">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Students with notebooks" />
+        </div>
       </div>
     </div>
-  </section>
+  </main>
 
-  <div id="site-footer"></div>
-  <script src="js/main.js"></script>
+  <!-- ==================== VIEW 2: ABOUT US ==================== -->
+  <div id="page-about" class="page-view">
+    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
+      <div class="container text-center">
+        <h2 class="serif" style="font-size: 2.6rem;">About Wisdom Education Centre</h2>
+        <p style="color:#cbd7e6; max-width:600px; margin:10px auto 0;">Fostering academic excellence and technical skills across two branches in Kanpur.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="about-split">
+          <div>
+            <h3 style="font-size:2rem; color:var(--navy-dark); margin-bottom:15px;">Our Educational Vision</h3>
+            <p>Wisdom Education Centre was established to offer children in Kanpur a balanced blend of rigorous ICSE-oriented curriculum and practical value-based education. At our Hamirpur Road campus in Saraswati Nagar, Naubasta, we prepare children from Class 1 to Class 8 to be inquisitive thinkers and disciplined citizens.</p>
+            <p>Our Khandepur Chauraha skill facility bridges the technical divide, training students in modern computers, management foundations, and vocational skills.</p>
+            
+            <div style="margin-top:20px; padding:18px; background:var(--bg-cream); border-left:4px solid var(--gold-main); border-radius:6px;">
+              <h4 style="color:var(--navy-dark); margin-bottom:4px;"><i class="fa-solid fa-bullseye"></i> Mission & Values</h4>
+              <p style="font-size:0.88rem; color:#475569; margin:0;">To provide affordable, top-quality English-medium education, respect for cultural festivals, and industry-oriented vocational skills.</p>
+            </div>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px; box-shadow:var(--shadow-md);" alt="Classroom study" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== VIEW 3: NAUBASTA SCHOOL ==================== -->
+  <div id="page-naubasta" class="page-view">
+    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
+      <div class="container text-center">
+        <span class="hero-pill">Naubasta / Saraswati Nagar</span>
+        <h2 class="serif" style="font-size: 2.6rem; margin: 10px 0;">ICSE Board School (Class 1 to 8)</h2>
+        <p style="color:#cbd7e6;">Near Amrawati Palace, Metro Pillar No. 159, Hamirpur Road, Kanpur – 208021</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="about-split">
+          <div>
+            <h3 style="font-size:2rem; color:var(--navy-dark); margin-bottom:15px;">Junior High School & Elementary Education</h3>
+            <p>Our Naubasta branch operates as an English-medium, ICSE-framework school for Class 1 to Class 8. We concentrate on language proficiency, mental mathematics, science curiosity, and moral development.</p>
+            <ul class="c-list" style="margin-top:15px;">
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Syllabus:</strong> ICSE Board Framework</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Grades:</strong> Class 1st to Class 8th</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Medium:</strong> Complete English Medium</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Admissions:</strong> Open for Current Academic Session</li>
+            </ul>
+            <div style="margin-top:25px;">
+              <button class="btn-gold" onclick="openModal('apply')">Apply for Admission in Naubasta</button>
+            </div>
+          </div>
+          <div>
+            <div style="background:white; border:1px solid var(--border-color); padding:25px; border-radius:10px; box-shadow:var(--shadow-md);">
+              <h4 style="color:var(--navy-dark); font-size:1.2rem; margin-bottom:12px;">Branch Information</h4>
+              <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Address:</strong> 1642, Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur – 208021</p>
+              <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Landmark:</strong> Near Amrawati Palace, Opposite Metro Pillar No. 159</p>
+              <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Helpline:</strong> <a href="tel:+916387644719" style="color:var(--navy-main); font-weight:700;">+91 63876 44719</a></p>
+              <p style="font-size:0.9rem;"><strong>Admissions Status:</strong> <span style="color:#16a34a; font-weight:700;">Open</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== VIEW 4: KHANDEPUR SKILL INSTITUTE ==================== -->
+  <div id="page-khandepur" class="page-view">
+    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
+      <div class="container text-center">
+        <span class="hero-pill">Khandepur Chauraha Branch</span>
+        <h2 class="serif" style="font-size: 2.6rem; margin: 10px 0;">Skill Development & Training Institute</h2>
+        <p style="color:#cbd7e6;">IT, Management, Soft Skills & Vocational Programs in Kanpur</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="events-grid">
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h4>Information Technology (IT)</h4>
+            <p>Computer essentials, MS Office, typing, and digital tools for office operations.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <h4>Computerized Accounting</h4>
+            <p>Tally basics, voucher entries, billing systems, and inventory recordkeeping.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-comments"></i></div>
+            <h4>Soft Skills & Spoken English</h4>
+            <p>Personality development, workplace etiquette, and confidence in English speaking.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <h4>Management Training</h4>
+            <p>Front desk management, customer relations, and business communication.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:35px; background:var(--bg-cream); padding:25px; border-radius:10px; border:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+          <div>
+            <h4 style="color:var(--navy-dark); font-size:1.15rem;">Institute Hours & Rating</h4>
+            <p style="font-size:0.88rem; color:#475569;">Monday to Saturday: 8:00 AM – 2:00 PM (Sunday Closed) • Rating: ~4.0 / 5 Stars</p>
+          </div>
+          <a href="tel:+916387644719" class="btn-gold"><i class="fa-solid fa-phone"></i> Inquire for Next Batch</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== VIEW 5: ACTIVITIES ==================== -->
+  <div id="page-activities" class="page-view">
+    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
+      <div class="container text-center">
+        <h2 class="serif" style="font-size: 2.6rem;">Activities & Cultural Events</h2>
+        <p style="color:#cbd7e6;">Celebrations that enrich culture, tradition, and physical wellness</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="events-grid">
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-spa"></i></div>
+            <h4>Yoga Day</h4>
+            <p>Special morning sessions focusing on pranayam, stretching, and concentration drills.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-om"></i></div>
+            <h4>Janmashtami</h4>
+            <p>Traditional dress competitions, bhajans, and festive enactments of Lord Krishna's stories.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-hands-praying"></i></div>
+            <h4>Ram Navmi & Navratri</h4>
+            <p>Festive prayers, moral teachings, and cultural storytelling.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+            <h4>Buddha Purnima</h4>
+            <p>Learning compassion, mindfulness, and the value of non-violence.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-palette"></i></div>
+            <h4>Holi Celebrations</h4>
+            <p>Eco-friendly festivities reinforcing the bond between students and teachers.</p>
+          </div>
+          <div class="e-card">
+            <div class="e-icon"><i class="fa-solid fa-person-breastfeeding"></i></div>
+            <h4>Mother's & Women's Day</h4>
+            <p>Expressing gratitude to mothers and honoring women in leadership and education.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== VIEW 6: CONTACT ==================== -->
+  <div id="page-contact" class="page-view">
+    <section style="background:var(--navy-dark); color:white; padding: 60px 0;">
+      <div class="container text-center">
+        <h2 class="serif" style="font-size: 2.6rem;">Contact Our Kanpur Campuses</h2>
+        <p style="color:#cbd7e6;">Connect with our admissions desk or visit our centers</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="campus-cards">
+          <div style="background:white; border:1px solid var(--border-color); padding:25px; border-radius:10px;">
+            <h3 style="color:var(--navy-dark); font-size:1.3rem; margin-bottom:10px;"><i class="fa-solid fa-school" style="color:var(--gold-main);"></i> Naubasta Branch (School)</h3>
+            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Type:</strong> ICSE Board School (Class 1 to 8)</p>
+            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Address:</strong> 1642, Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur – 208021</p>
+            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Landmark:</strong> Near Amrawati Palace, Metro Pillar No. 159</p>
+            <p style="font-size:0.9rem; margin-bottom:15px;"><strong>Helpline:</strong> +91 63876 44719</p>
+            <a href="tel:+916387644719" class="btn-gold" style="width:100%; text-align:center;"><i class="fa-solid fa-phone"></i> Call Naubasta Campus</a>
+          </div>
+
+          <div style="background:white; border:1px solid var(--border-color); padding:25px; border-radius:10px;">
+            <h3 style="color:var(--navy-dark); font-size:1.3rem; margin-bottom:10px;"><i class="fa-solid fa-laptop-code" style="color:var(--gold-main);"></i> Khandepur Branch (Skill Hub)</h3>
+            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Type:</strong> Skill Development & Training Institute</p>
+            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Address:</strong> Khandepur Chauraha, Kanpur, Uttar Pradesh</p>
+            <p style="font-size:0.9rem; margin-bottom:6px;"><strong>Hours:</strong> Mon – Sat: 8:00 AM – 2:00 PM (Sunday Closed)</p>
+            <p style="font-size:0.9rem; margin-bottom:15px;"><strong>Courses:</strong> IT, Management, Soft Skills, Vocational</p>
+            <a href="tel:+916387644719" class="btn-gold" style="width:100%; text-align:center;"><i class="fa-solid fa-phone"></i> Call Khandepur Office</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
+          <div class="crest-badge" style="width:36px; height:36px; font-size:1.1rem;">W</div>
+          <h4 style="margin:0; font-size:1.1rem; color:white;">WISDOM EDUCATION CENTRE</h4>
+        </div>
+        <p>English-medium ICSE junior high school education and modern vocational skill development institute serving Kanpur, Uttar Pradesh.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a onclick="navigate('home')">Home</a></li>
+          <li><a onclick="navigate('about')">About Us</a></li>
+          <li><a onclick="navigate('naubasta')">Naubasta School (ICSE)</a></li>
+          <li><a onclick="navigate('khandepur')">Khandepur Skill Institute</a></li>
+          <li><a onclick="navigate('activities')">Campus Activities</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Key Programs</h4>
+        <ul class="footer-links">
+          <li><a onclick="navigate('naubasta')">Class 1 to 8 Admissions</a></li>
+          <li><a onclick="navigate('khandepur')">IT & Computer Training</a></li>
+          <li><a onclick="navigate('khandepur')">Soft Skills & Spoken English</a></li>
+          <li><a onclick="navigate('activities')">Annual Cultural Fests</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kanpur Campuses</h4>
+        <div class="f-contact-line">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>1642 Saraswati Nagar, Hamirpur Rd, Naubasta (near Pillar 159), Kanpur</span>
+        </div>
+        <div class="f-contact-line">
+          <i class="fa-solid fa-phone"></i>
+          <span>+91 63876 44719</span>
+        </div>
+        <div class="f-contact-line">
+          <i class="fa-solid fa-clock"></i>
+          <span>Khandepur Branch: 8:00 AM – 2:00 PM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© Wisdom Education Centre, Kanpur. All rights reserved.</p>
+      <p>ICSE Board School & Skill Training Hub</p>
+    </div>
+  </footer>
+
+  <!-- MOBILE FLOATING BOTTOM BAR (CALL & WHATSAPP) -->
+  <div class="mobile-float-bar">
+    <a href="tel:+916387644719" class="mobile-float-btn btn-call-mobile">
+      <i class="fa-solid fa-phone"></i> Call Now
+    </a>
+    <a href="https://wa.me/916387644719?text=Hello%2C%20I%20want%20to%20know%20more%20about%20Wisdom%20Education%20Centre" target="_blank" class="mobile-float-btn btn-wa-mobile">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+  </div>
+
+  <!-- APPLICATION MODAL -->
+  <div class="modal-overlay" id="applyModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Admission & Course Enquiry</h3>
+        <button class="close-btn" onclick="closeModal('apply')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleForm(event)">
+          <div class="form-box">
+            <label>Student / Candidate Name *</label>
+            <input type="text" placeholder="Full Name" required />
+          </div>
+          <div class="form-box">
+            <label>Contact Phone Number *</label>
+            <input type="tel" placeholder="+91 63876 44719" required />
+          </div>
+          <div class="form-box">
+            <label>Select Campus / Interest *</label>
+            <select required>
+              <option value="">-- Choose Branch --</option>
+              <option value="naubasta">Naubasta Branch (School Class 1 to 8 - ICSE)</option>
+              <option value="khandepur">Khandepur Branch (Skill Development & IT)</option>
+            </select>
+          </div>
+          <div class="form-box">
+            <label>Questions / Remarks</label>
+            <textarea rows="3" placeholder="Enter inquiry details..."></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%; justify-content:center;">Submit Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // SPA Tab Navigation
+    function navigate(id) {
+      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-page'));
+      const activeP = document.getElementById('page-' + id);
+      if (activeP) activeP.classList.add('active-page');
+
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const activeNav = document.getElementById('nav-' + id);
+      if (activeNav) activeNav.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Mobile Drawer Toggle
+    function toggleMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('open');
+    }
+
+    // Modal Handlers
+    function openModal(type) {
+      document.getElementById('applyModal').classList.add('active');
+    }
+    function closeModal(type) {
+      document.getElementById('applyModal').classList.remove('active');
+    }
+
+    window.onclick = function(e) {
+      const modal = document.getElementById('applyModal');
+      if (e.target === modal) modal.classList.remove('active');
+    };
+
+    function handleForm(e) {
+      e.preventDefault();
+      alert("Enquiry Submitted! Wisdom Education Centre team will contact you at +91 63876 44719.");
+      closeModal('apply');
+    }
+  </script>
 </body>
 </html>
