@@ -1,1 +1,447 @@
-deepboost.vercel.app
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wisdom Education Centre | Naubasta, Kanpur</title>
+<meta name="description" content="Wisdom Education Centre, 1642 Saraswati Nagar, Hamirpur Road, Naubasta, Kanpur. Mon–Sat, 8 AM – 2 PM. Send your admission enquiry online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a4a; --navy2:#173a63; --gold:#d4a017; --gold-l:#fdf3d8;
+  --text:#1f2937; --muted:#6b7280; --bg:#ffffff; --soft:#f6f8fb; --line:#e5e7eb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:100%;max-width:1150px;margin:0 auto;padding:0 16px}
+h1,h2{font-family:'DM Serif Display',serif;color:var(--navy);line-height:1.2}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section{padding:70px 0}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.section-head h2{font-size:clamp(28px,5vw,40px);margin-bottom:12px}
+.section-head p{color:var(--muted)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:50px;font-weight:600;font-size:15px;transition:.25s;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy2)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{filter:brightness(1.07)}
+.btn-outline{border-color:var(--navy);color:var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+
+/* Top bar */
+.topbar{background:var(--navy);color:#dbe4f0;font-size:13px}
+.topbar .container{display:flex;justify-content:space-between;gap:10px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.topbar a{color:#fff;font-weight:500}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 12px rgba(15,42,74,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:44px;height:44px;border-radius:12px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:'DM Serif Display',serif;font-size:22px}
+.logo b{display:block;color:var(--navy);font-size:17px;line-height:1.1}
+.logo small{color:var(--muted);font-size:12px}
+.menu{display:flex;gap:26px;align-items:center}
+.menu a{font-weight:500;font-size:15px;color:var(--navy)}
+.menu a:hover{color:var(--gold)}
+.menu .btn{padding:10px 20px;color:#fff}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{display:block;width:26px;height:3px;background:var(--navy);margin:5px 0;border-radius:2px}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--soft),#fff);padding:60px 0 70px}
+.hero .container{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,6vw,56px);margin-bottom:16px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--muted);font-size:17px;margin-bottom:26px;max-width:520px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:24px;height:420px;width:100%;object-fit:cover;background:linear-gradient(135deg,var(--navy),var(--navy2));box-shadow:0 20px 50px rgba(15,42,74,.18)}
+.hero-badge{position:absolute;left:-14px;bottom:24px;background:#fff;border-radius:16px;padding:14px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 30px rgba(15,42,74,.15)}
+.hero-badge .ic{width:42px;height:42px;border-radius:50%;background:var(--gold-l);color:var(--gold);display:grid;place-items:center}
+.hero-badge small{display:block;color:var(--muted);font-size:12px}
+.hero-badge b{color:var(--navy)}
+
+/* Info strip */
+.info{margin-top:-35px;position:relative;z-index:2}
+.info-box{background:var(--navy);border-radius:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;overflow:hidden;box-shadow:0 15px 40px rgba(15,42,74,.2)}
+.info-item{background:var(--navy);padding:24px;display:flex;gap:14px;align-items:flex-start;color:#dbe4f0}
+.info-item .ic{flex:0 0 44px;height:44px;border-radius:12px;background:rgba(212,160,23,.15);color:var(--gold);display:grid;place-items:center}
+.info-item b{display:block;color:#fff;margin-bottom:2px}
+.info-item p{font-size:14px}
+.info-item a{color:#fff;font-weight:600}
+
+/* About */
+.about .container{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-art{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:24px;padding:40px;color:#fff;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end}
+.about-art::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(212,160,23,.18);top:-60px;right:-60px}
+.about-art .big{font-family:'DM Serif Display',serif;font-size:42px;line-height:1.1;position:relative}
+.about-art .big span{color:var(--gold)}
+.about-art p{opacity:.85;margin-top:10px;position:relative}
+.about h2{font-size:clamp(28px,5vw,40px);margin-bottom:16px}
+.about p{color:var(--muted);margin-bottom:14px}
+.ticks{list-style:none;margin:18px 0 26px}
+.ticks li{padding-left:30px;position:relative;margin-bottom:10px;font-weight:500}
+.ticks li::before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--gold-l);color:var(--gold);font-size:12px;display:grid;place-items:center;font-weight:700}
+
+/* Why cards */
+.why{background:var(--soft)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:#fff;border-radius:18px;padding:28px 22px;border:1px solid var(--line);transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(15,42,74,.1);border-color:transparent}
+.card .ic{width:52px;height:52px;border-radius:14px;background:var(--navy);color:var(--gold);display:grid;place-items:center;margin-bottom:16px}
+.card h3{color:var(--navy);font-size:18px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+
+/* Admission */
+.admission .container{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+.adm-info h2{font-size:clamp(28px,5vw,40px);margin-bottom:14px}
+.adm-info p{color:var(--muted);margin-bottom:20px}
+.steps{list-style:none}
+.steps li{display:flex;gap:14px;margin-bottom:16px}
+.steps .n{flex:0 0 36px;height:36px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:700;display:grid;place-items:center}
+.steps b{color:var(--navy);display:block}
+.steps small{color:var(--muted)}
+.form{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 15px 40px rgba(15,42,74,.08)}
+.form h3{color:var(--navy);font-size:22px;margin-bottom:4px}
+.form .sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:14px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.field input,.field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:15px;outline:none;transition:.2s;background:#fff}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{min-height:90px;resize:vertical}
+.form .btn{width:100%;justify-content:center}
+.form-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.form-err{color:#b91c1c;font-size:14px;margin-top:8px;text-align:center;min-height:20px}
+
+/* Contact */
+.contact{background:var(--soft)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:24px}
+.c-card{background:#fff;border-radius:20px;padding:28px;border:1px solid var(--line)}
+.c-row{display:flex;gap:14px;margin-bottom:20px}
+.c-row .ic{flex:0 0 44px;height:44px;border-radius:12px;background:var(--gold-l);color:var(--gold);display:grid;place-items:center}
+.c-row b{color:var(--navy);display:block}
+.c-row p,.c-row a{color:var(--muted);font-size:15px}
+.c-row a:hover{color:var(--navy)}
+.map{border-radius:20px;overflow:hidden;min-height:340px;border:1px solid var(--line)}
+.map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+
+/* CTA */
+.cta{background:var(--navy);border-radius:24px;padding:46px 30px;text-align:center;color:#dbe4f0;margin:70px auto}
+.cta h2{color:#fff;font-size:clamp(26px,5vw,38px);margin-bottom:10px}
+.cta h2 span{color:var(--gold)}
+.cta p{margin-bottom:22px}
+.cta .hero-btns{justify-content:center}
+.cta .btn-outline{border-color:#fff;color:#fff}
+.cta .btn-outline:hover{background:#fff;color:var(--navy)}
+
+/* Footer */
+footer{background:#0a1d33;color:#9fb0c5;padding:40px 0 20px;font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot .logo b{color:#fff}
+.foot .logo small{color:#9fb0c5}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-links a:hover{color:var(--gold)}
+.copy{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:18px}
+.credit a{color:var(--gold);font-weight:600}
+
+/* Floating WhatsApp */
+.wa-float{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:60}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(25px);transition:.7s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero .container,.about .container,.admission .container,.contact-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .info-box{grid-template-columns:1fr}
+  .hero-img img{height:300px}
+  .hero-badge{left:12px}
+}
+@media (max-width:760px){
+  .burger{display:block}
+  .menu{position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:10px 16px 20px;box-shadow:0 10px 20px rgba(0,0,0,.08);display:none}
+  .menu.open{display:flex}
+  .menu a{padding:12px 0;width:100%;border-bottom:1px solid var(--line)}
+  .menu .btn{margin-top:12px;justify-content:center;border-bottom:0}
+  .topbar .hide-sm{display:none}
+}
+@media (max-width:520px){
+  .cards,.row{grid-template-columns:1fr}
+  .section{padding:55px 0}
+  .form{padding:22px}
+  .copy{flex-direction:column;text-align:center}
+  .foot{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <span>📍 Saraswati Nagar, Hamirpur Rd, Naubasta, Kanpur</span>
+    <span class="hide-sm">🕗 Mon–Sat: 8:00 AM – 2:00 PM &nbsp;|&nbsp; 📞 <a href="tel:+916387644719">+91 63876 44719</a></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <span class="logo-mark">W</span>
+      <span><b>Wisdom Education Centre</b><small>Naubasta, Kanpur</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#admission" class="btn btn-navy">Admission Enquiry</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Welcome to Wisdom Education Centre</span>
+      <h1>Inspiring Minds.<br><span>Shaping Futures.</span></h1>
+      <p>A neighbourhood school in Saraswati Nagar, Naubasta, where children come to learn, grow and discover what they can do.</p>
+      <div class="hero-btns">
+        <a href="#admission" class="btn btn-navy">Admission Enquiry →</a>
+        <a href="tel:+916387644719" class="btn btn-outline">Call School</a>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <img src="https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Children studying in a classroom" onerror="this.removeAttribute('src')">
+      <div class="hero-badge">
+        <span class="ic">🕗</span>
+        <div><small>School Hours</small><b>8 AM – 2 PM</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section class="info">
+  <div class="container">
+    <div class="info-box reveal">
+      <div class="info-item">
+        <span class="ic">🕗</span>
+        <div><b>School Hours</b><p>Monday to Saturday<br>8:00 AM – 2:00 PM (Sunday closed)</p></div>
+      </div>
+      <div class="info-item">
+        <span class="ic">📍</span>
+        <div><b>Our Location</b><p>1642, Saraswati Nagar, Hamirpur Rd,<br>Naubasta, Kanpur 208021</p></div>
+      </div>
+      <div class="info-item">
+        <span class="ic">📞</span>
+        <div><b>Call Us</b><p><a href="tel:+916387644719">+91 63876 44719</a><br>For admission & enquiries</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-art reveal">
+      <div class="big">Learn.<br>Grow.<br><span>Shine.</span></div>
+      <p>Right here in Naubasta, close to your home.</p>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">About Our School</span>
+      <h2>A place where every child can begin with confidence</h2>
+      <p>Wisdom Education Centre is located on Hamirpur Road in Saraswati Nagar, Naubasta, Kanpur. Families from the area can easily reach the school and connect with us directly.</p>
+      <p>Visit the school or send an enquiry to know more about classes, admission and the learning environment.</p>
+      <ul class="ticks">
+        <li>Conveniently located in Naubasta, Kanpur</li>
+        <li>Regular school hours, Monday to Saturday</li>
+        <li>Simple online admission enquiry</li>
+        <li>Direct phone & WhatsApp contact with the school</li>
+      </ul>
+      <a href="#admission" class="btn btn-gold">Send Admission Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Parents Reach Out</span>
+      <h2>Easy to Reach. Easy to Connect.</h2>
+      <p>Everything you need to get in touch with the school, in one place.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ic">📍</div>
+        <h3>Close to Home</h3>
+        <p>Located on Hamirpur Road, Saraswati Nagar, easy for Naubasta families.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🕗</div>
+        <h3>Fixed Timings</h3>
+        <p>School runs Monday to Saturday, 8:00 AM to 2:00 PM.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">📝</div>
+        <h3>Quick Enquiry</h3>
+        <p>Fill a short form and your details reach the school on WhatsApp.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🤝</div>
+        <h3>Visit Anytime</h3>
+        <p>Drop by during school hours to meet the team and see the school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION -->
+<section class="section admission" id="admission">
+  <div class="container">
+    <div class="adm-info reveal">
+      <span class="eyebrow">Admission Enquiry</span>
+      <h2>Start your child's journey with us</h2>
+      <p>Fill in the form and the school will get your enquiry directly on WhatsApp.</p>
+      <ul class="steps">
+        <li><span class="n">1</span><div><b>Fill the form</b><small>Takes less than a minute</small></div></li>
+        <li><span class="n">2</span><div><b>Send on WhatsApp</b><small>Your details open in WhatsApp, just press send</small></div></li>
+        <li><span class="n">3</span><div><b>School contacts you</b><small>Get admission details and visit the school</small></div></li>
+      </ul>
+    </div>
+    <form class="form reveal" id="admForm" novalidate>
+      <h3>Admission Enquiry Form</h3>
+      <p class="sub">Fields marked * are required</p>
+      <div class="row">
+        <div class="field"><label for="sname">Student Name *</label><input id="sname" required></div>
+        <div class="field"><label for="pname">Parent Name *</label><input id="pname" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="phone">Mobile Number *</label><input id="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit number" required></div>
+        <div class="field"><label for="cls">Class Applying For *</label><input id="cls" placeholder="e.g. Class 3" required></div>
+      </div>
+      <div class="field"><label for="msg">Message (optional)</label><textarea id="msg" placeholder="Any question for the school"></textarea></div>
+      <button type="submit" class="btn btn-navy">Send Enquiry on WhatsApp</button>
+      <p class="form-err" id="formErr"></p>
+      <p class="form-note">Your details are sent only to the school.</p>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact Us</span>
+      <h2>Visit or Call the School</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="c-card reveal">
+        <div class="c-row"><span class="ic">📍</span><div><b>Address</b><p>1642, Saraswati Nagar, Hamirpur Rd, Naubasta, Kanpur, Uttar Pradesh 208021</p></div></div>
+        <div class="c-row"><span class="ic">📞</span><div><b>Phone</b><a href="tel:+916387644719">+91 63876 44719</a></div></div>
+        <div class="c-row"><span class="ic">🕗</span><div><b>Timings</b><p>Mon–Sat: 8:00 AM – 2:00 PM<br>Sunday: Closed</p></div></div>
+        <a href="https://maps.app.goo.gl/XWjU6KH8HaLCxRtP8" target="_blank" rel="noopener" class="btn btn-gold">Get Directions</a>
+      </div>
+      <div class="map reveal">
+        <iframe title="Wisdom Education Centre on Google Maps" src="https://www.google.com/maps?q=26.3986699,80.3115042&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="container">
+  <div class="cta reveal">
+    <h2>Admissions Enquiry <span>Open Now</span></h2>
+    <p>Call the school or send your enquiry today.</p>
+    <div class="hero-btns">
+      <a href="#admission" class="btn btn-gold">Send Enquiry</a>
+      <a href="tel:+916387644719" class="btn btn-outline">Call +91 63876 44719</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot">
+      <a href="#home" class="logo">
+        <span class="logo-mark">W</span>
+        <span><b>Wisdom Education Centre</b><small>Saraswati Nagar, Naubasta, Kanpur</small></span>
+      </a>
+      <div class="foot-links">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#why">Why Us</a><a href="#admission">Admission</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="yr"></span> Wisdom Education Centre. All rights reserved.</span>
+      <span class="credit">Designed & Developed by <a href="https://deepboost.vercel.app" target="_blank" rel="noopener">DeepBoost</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<script>
+// ===== SETTINGS: WhatsApp number (country code ke saath, bina + ke) =====
+const WHATSAPP = "916387644719";
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+// Floating WhatsApp
+document.getElementById("waFloat").href =
+  "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Hello, I want to know about admission at Wisdom Education Centre.");
+
+// Mobile menu
+const burger = document.getElementById("burger");
+const menu = document.getElementById("menu");
+burger.addEventListener("click", () => menu.classList.toggle("open"));
+menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => menu.classList.remove("open")));
+
+// Admission form -> WhatsApp
+document.getElementById("admForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const err = document.getElementById("formErr");
+  const sname = v("sname"), pname = v("pname"), phone = v("phone"), cls = v("cls"), msg = v("msg");
+
+  if (!sname || !pname || !phone || !cls) { err.textContent = "Please fill all required fields."; return; }
+  if (!/^[6-9]\d{9}$/.test(phone)) { err.textContent = "Please enter a valid 10-digit mobile number."; return; }
+  err.textContent = "";
+
+  const text =
+    "*New Admission Enquiry*\n" +
+    "Student: " + sname + "\n" +
+    "Parent: " + pname + "\n" +
+    "Mobile: " + phone + "\n" +
+    "Class: " + cls +
+    (msg ? "\nMessage: " + msg : "");
+
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text), "_blank");
+  this.reset();
+});
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("show"); io.unobserve(en.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
