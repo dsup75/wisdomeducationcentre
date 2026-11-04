@@ -3,99 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeepBoost Life - Web Sandbox Test</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>DeepBoost Life</title>
+  <script src="https://tailwindcss.com"></script>
   <style>
     body { background-color: #0b0f19; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; }
+    .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(20px); border-top: 1px solid rgba(255, 255, 255, 0.1); }
     .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
   </style>
 </head>
-<body class="p-5 pb-24 max-w-md mx-auto">
+<body class="pb-28 max-w-md mx-auto">
 
   <!-- Header -->
-  <div class="flex justify-between items-center mb-6">
+  <header class="p-5 flex justify-between items-center">
     <div>
-      <p class="text-xs text-emerald-400 font-semibold tracking-wider uppercase">DeepBoost Life Sandbox</p>
-      <h1 class="text-xl font-bold">Dashboard Test 👋</h1>
+      <p class="text-xs text-emerald-400 font-semibold tracking-wider uppercase">DeepBoost Life</p>
+      <h1 class="text-xl font-bold">Good Day, Rahul 👋</h1>
     </div>
-    <span class="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Live Test</span>
-  </div>
+    <button onclick="toggleSettings()" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-lg">⚙️</button>
+  </header>
 
   <!-- Total Balance Card -->
-  <div class="glass-card p-6 emerald-gradient text-white shadow-xl mb-6">
-    <p class="text-xs font-medium text-emerald-100 uppercase tracking-wider">Total Net Balance</p>
-    <h2 id="netBalance" class="text-3xl font-extrabold my-2">₹0.00</h2>
-    <div class="flex justify-between text-xs pt-2 border-t border-emerald-400/30">
-      <span>Income: <b id="totInc">₹0</b></span>
-      <span>Expense: <b id="totExp">₹0</b></span>
+  <section class="px-5 mb-5">
+    <div class="glass-card p-6 emerald-gradient text-white shadow-xl relative overflow-hidden">
+      <p class="text-xs font-medium text-emerald-100 uppercase tracking-wider">Total Net Balance</p>
+      <h2 id="totalBalance" class="text-3xl font-extrabold my-2">₹0.00</h2>
+      <div class="flex justify-between text-xs pt-2 border-t border-emerald-400/30">
+        <span>▲ Income: <b id="totalIncome">₹0</b></span>
+        <span>▼ Expense: <b id="totalExpense">₹0</b></span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Actions -->
-  <div class="grid grid-cols-3 gap-3 mb-6 text-center text-xs">
-    <button onclick="addEntry('income')" class="glass-card p-3 font-medium active:scale-95 transition">💰 Income</button>
-    <button onclick="addEntry('expense')" class="glass-card p-3 font-medium active:scale-95 transition">💸 Expense</button>
-    <button onclick="addGoal()" class="glass-card p-3 font-medium active:scale-95 transition">🎯 Goal</button>
-  </div>
+  <!-- Quick Action Buttons -->
+  <section class="px-5 mb-6 grid grid-cols-4 gap-2 text-center text-xs">
+    <button onclick="openModal('expense')" class="glass-card p-3 flex flex-col items-center gap-1 active:scale-95 transition">
+      <span class="text-lg">💸</span> <span class="text-[10px]">Expense</span>
+    </button>
+    <button onclick="openModal('income')" class="glass-card p-3 flex flex-col items-center gap-1 active:scale-95 transition">
+      <span class="text-lg">💰</span> <span class="text-[10px]">Income</span>
+    </button>
+    <button onclick="openModal('goal')" class="glass-card p-3 flex flex-col items-center gap-1 active:scale-95 transition">
+      <span class="text-lg">🎯</span> <span class="text-[10px]">Goal</span>
+    </button>
+    <button onclick="openModal('task')" class="glass-card p-3 flex flex-col items-center gap-1 active:scale-95 transition">
+      <span class="text-lg">📝</span> <span class="text-[10px]">Task</span>
+    </button>
+  </section>
 
-  <!-- Activity Log -->
-  <h3 class="text-sm font-bold text-slate-400 mb-3 uppercase tracking-wider">Transactions</h3>
-  <div id="sandboxList" class="space-y-3">
-    <p class="text-xs text-slate-500 text-center py-4">No entries yet. Click buttons above.</p>
+  <!-- Dynamic Content Sections -->
+  <main class="px-5">
+    <div id="tab-today">
+      <h3 class="text-sm font-bold mb-3 text-slate-400 uppercase tracking-wider">Today's Tasks</h3>
+      <div id="taskList" class="space-y-2 mb-6">
+        <div class="glass-card p-3 flex items-center gap-3 text-sm">
+          <input type="checkbox" class="accent-emerald-500 w-4 h-4">
+          <span class="line-through text-slate-500">Review Client Invoice - INV-0012</span>
+        </div>
+      </div>
+
+      <h3 class="text-sm font-bold mb-3 text-slate-400 uppercase tracking-wider">Recent Activity</h3>
+      <div id="txList" class="space-y-3">
+        <p class="text-xs text-slate-500 text-center py-4">No transactions added yet.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- iOS Style Bottom Navigation Bar -->
+  <nav class="glass-nav fixed bottom-0 left-0 right-0 max-w-md mx-auto p-3 flex justify-around items-center text-xs z-40">
+    <button onclick="switchTab('today')" class="flex flex-col items-center text-emerald-400 font-bold">
+      <span class="text-lg">📅</span> <span>Today</span>
+    </button>
+    <button onclick="switchTab('money')" class="flex flex-col items-center text-slate-400">
+      <span class="text-lg">💳</span> <span>Money</span>
+    </button>
+    <button onclick="switchTab('goals')" class="flex flex-col items-center text-slate-400">
+      <span class="text-lg">🎯</span> <span>Goals</span>
+    </button>
+    <button onclick="switchTab('clients')" class="flex flex-col items-center text-slate-400">
+      <span class="text-lg">👥</span> <span>Clients</span>
+    </button>
+    <button onclick="switchTab('profile')" class="flex flex-col items-center text-slate-400">
+      <span class="text-lg">👤</span> <span>Profile</span>
+    </button>
+  </nav>
+
+  <!-- Entry Modal -->
+  <div id="formModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-end z-50">
+    <div class="glass-card w-full p-6 rounded-t-3xl bg-slate-900 border-t border-white/20">
+      <h3 id="modalTitle" class="text-lg font-bold mb-4">Add Entry</h3>
+      <input type="number" id="txAmount" placeholder="Amount (₹)" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 mb-3 text-white text-sm">
+      <input type="text" id="txNote" placeholder="Note / Description" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 mb-3 text-white text-sm">
+      <select id="txAccount" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 mb-4 text-white text-sm">
+        <option value="HDFC Bank">HDFC Bank</option>
+        <option value="GPay / Wallet">GPay / Wallet</option>
+        <option value="Cash">Cash</option>
+        <option value="Credit Card">Credit Card</option>
+      </select>
+      <button onclick="submitEntry()" class="w-full py-3 emerald-gradient rounded-xl font-bold text-sm">Save Entry</button>
+      <button onclick="closeModal()" class="w-full py-2 mt-2 text-slate-400 text-xs">Cancel</button>
+    </div>
   </div>
 
   <script>
-    let sandboxData = [];
+    let state = { transactions: [], tasks: [], type: 'expense' };
 
-    function addEntry(type) {
-      const amount = prompt(`Enter ${type} amount (₹):`, "500");
-      if (!amount) return;
-      const note = prompt("Enter description:", type === 'income' ? "Salary" : "Groceries");
-      
-      sandboxData.unshift({ type, amount: parseFloat(amount), note: note || type, date: new Date().toLocaleTimeString() });
-      renderSandbox();
+    function openModal(type) {
+      state.type = type;
+      document.getElementById('modalTitle').innerText = `Add ${type.toUpperCase()}`;
+      document.getElementById('formModal').classList.remove('hidden');
+    }
+    function closeModal() { document.getElementById('formModal').classList.add('hidden'); }
+
+    function submitEntry() {
+      const amount = parseFloat(document.getElementById('txAmount').value);
+      const note = document.getElementById('txNote').value;
+      const account = document.getElementById('txAccount').value;
+
+      if (!amount) return alert('Please enter an amount');
+
+      if (state.type === 'task') {
+        state.tasks.push({ text: note || 'New Task', done: false });
+        renderTasks();
+      } else {
+        state.transactions.unshift({ type: state.type, amount, note: note || state.type, account, date: new Date().toLocaleTimeString() });
+        renderTransactions();
+      }
+      closeModal();
     }
 
-    function addGoal() {
-      const goalName = prompt("Enter Goal Name:", "New Phone");
-      if (!goalName) return;
-      const target = prompt("Enter Target Amount (₹):", "30000");
-      
-      sandboxData.unshift({ type: 'goal', amount: parseFloat(target), note: `Goal: ${goalName}`, date: 'Savings Jar' });
-      renderSandbox();
-    }
-
-    function renderSandbox() {
+    function renderTransactions() {
       let inc = 0, exp = 0;
-      const list = document.getElementById('sandboxList');
+      const list = document.getElementById('txList');
       list.innerHTML = '';
 
-      if (sandboxData.length === 0) {
-        list.innerHTML = '<p class="text-xs text-slate-500 text-center py-4">No entries yet.</p>';
+      if (state.transactions.length === 0) {
+        list.innerHTML = '<p class="text-xs text-slate-500 text-center py-4">No transactions added yet.</p>';
         return;
       }
 
-      sandboxData.forEach(item => {
-        if (item.type === 'income') inc += item.amount;
-        if (item.type === 'expense') exp += item.amount;
+      state.transactions.forEach(t => {
+        if (t.type === 'income') inc += t.amount;
+        if (t.type === 'expense') exp += t.amount;
 
         list.innerHTML += `
           <div class="glass-card p-4 flex justify-between items-center text-sm">
             <div>
-              <p class="font-bold">${item.note}</p>
-              <p class="text-xs text-slate-400">${item.date}</p>
+              <p class="font-bold">${t.note}</p>
+              <p class="text-xs text-slate-400">${t.account} • ${t.date}</p>
             </div>
-            <span class="font-extrabold ${item.type === 'income' ? 'text-emerald-400' : item.type === 'expense' ? 'text-rose-400' : 'text-cyan-400'}">
-              ${item.type === 'income' ? '+' : item.type === 'expense' ? '-' : '🎯'}₹${item.amount}
+            <span class="font-extrabold ${t.type === 'income' ? 'text-emerald-400' : 'text-rose-400'}">
+              ${t.type === 'income' ? '+' : '-'}₹${t.amount}
             </span>
           </div>
         `;
       });
 
-      document.getElementById('netBalance').innerText = `₹${(inc - exp).toFixed(2)}`;
-      document.getElementById('totInc').innerText = `₹${inc}`;
-      document.getElementById('totExp').innerText = `₹${exp}`;
+      document.getElementById('totalBalance').innerText = `₹${(inc - exp).toFixed(2)}`;
+      document.getElementById('totalIncome').innerText = `₹${inc}`;
+      document.getElementById('totalExpense').innerText = `₹${exp}`;
+    }
+
+    function renderTasks() {
+      const tList = document.getElementById('taskList');
+      tList.innerHTML = '';
+      state.tasks.forEach(task => {
+        tList.innerHTML += `
+          <div class="glass-card p-3 flex items-center gap-3 text-sm">
+            <input type="checkbox" class="accent-emerald-500 w-4 h-4">
+            <span>${task.text}</span>
+          </div>
+        `;
+      });
+    }
+
+    function switchTab(tab) {
+      alert(`Switched to ${tab.toUpperCase()} tab!`);
     }
   </script>
 </body>
