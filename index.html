@@ -1,28 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>DeepBoost Life</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     
-    * {
-      box-sizing: border-box;
+    body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #030712;
+      color: #f9fafb;
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
-      background-color: #05080E;
-      color: #F8FAFC;
-      overflow-x: hidden;
-    }
-
-    /* iOS Glassmorphism Utilities */
-    .glass-card {
-      background: rgba(22, 32, 49, 0.65);
+    .glass-panel {
+      background: rgba(17, 24, 39, 0.65);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -30,14 +42,14 @@
     }
 
     .glass-card-subtle {
-      background: rgba(15, 23, 38, 0.5);
+      background: rgba(31, 41, 55, 0.4);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 18px;
     }
 
-    .glass-balance-card {
-      background: linear-gradient(145deg, rgba(16, 185, 129, 0.35) 0%, rgba(5, 150, 105, 0.15) 100%);
+    .glass-emerald-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.1) 100%);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid rgba(16, 185, 129, 0.3);
@@ -45,17 +57,17 @@
     }
 
     .glass-nav-bar {
-      background: rgba(13, 20, 32, 0.75);
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 35px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
     }
 
     .fab-glow {
-      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
     }
 
     .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -64,36 +76,42 @@
 </head>
 <body class="pb-32 max-w-md mx-auto min-h-screen relative select-none">
 
-  <!-- TOP APP BAR -->
-  <header class="pt-6 px-6 pb-4 flex justify-between items-center sticky top-0 z-30 bg-[#05080E]/80 backdrop-blur-md">
+  <!-- BIOMETRIC LOCK OVERLAY -->
+  <div id="lockScreen" class="fixed inset-0 bg-[#030712]/95 backdrop-blur-2xl z-50 hidden flex flex-col items-center justify-center space-y-6">
+    <div class="w-20 h-20 rounded-3xl glass-emerald-card flex items-center justify-center text-3xl">🔒</div>
+    <div class="text-center">
+      <h2 class="text-xl font-bold">DeepBoost Protected</h2>
+      <p class="text-xs text-slate-400 mt-1">Authenticate to unlock dashboard</p>
+    </div>
+    <button onclick="unlockApp()" class="px-6 py-3 fab-glow rounded-xl font-bold text-sm text-white">Unlock App</button>
+  </div>
+
+  <!-- HEADER -->
+  <header class="pt-6 px-6 pb-4 flex justify-between items-center sticky top-0 z-30 bg-[#030712]/80 backdrop-blur-md">
     <div class="flex items-center gap-3">
       <div class="relative">
-        <img id="userAvatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256" class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/30">
-        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-[#05080E] rounded-full"></span>
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256" class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/30">
+        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-[#030712] rounded-full"></span>
       </div>
       <div>
-        <p class="text-xs text-slate-400 font-medium">Good Morning,</p>
-        <h1 id="userNameHeading" class="text-lg font-bold tracking-tight text-white flex items-center gap-1.5">Rahul 🖐️</h1>
+        <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest">DeepBoost Life</p>
+        <h1 class="text-lg font-bold tracking-tight text-white">Rahul Sharma 🖐️</h1>
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <button onclick="toggleLock()" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-white active:scale-95 transition">
-        🔒
-      </button>
-      <button onclick="openModal('settingsModal')" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-white active:scale-95 transition">
-        ⚙️
-      </button>
+      <button onclick="lockApp()" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-300 hover:text-white active:scale-95 transition">🔒</button>
+      <button onclick="openModal('settingsModal')" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-300 hover:text-white active:scale-95 transition">⚙️</button>
     </div>
   </header>
 
   <!-- TAB 1: TODAY / DASHBOARD -->
   <main id="view-today" class="px-5 space-y-6">
     <!-- Balance Card -->
-    <div class="glass-balance-card p-6 relative overflow-hidden shadow-2xl">
+    <div class="glass-emerald-card p-6 relative overflow-hidden shadow-2xl">
       <div class="flex justify-between items-center mb-1">
         <span class="text-xs font-semibold text-emerald-200/80 uppercase tracking-wider">Total Net Balance</span>
-        <button onclick="togglePrivacy()" class="flex items-center gap-1.5 text-xs font-medium text-emerald-200/90 glass-card-subtle px-3 py-1">
-          <span>Hide</span>
+        <button onclick="togglePrivacy()" class="flex items-center gap-1.5 text-xs font-medium text-emerald-200/90 glass-card-subtle px-3 py-1 rounded-full">
+          <span>Privacy</span>
           <span id="eyeIcon">👁️</span>
         </button>
       </div>
@@ -123,79 +141,78 @@
     <!-- Quick Actions Horizon -->
     <div class="grid grid-cols-5 gap-2 text-center text-[11px]">
       <button onclick="openAddEntry('expense')" class="flex flex-col items-center gap-1.5 active:scale-90 transition group">
-        <div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">💸</div>
-        <span class="text-slate-400 group-hover:text-white">Add Spent</span>
+        <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">💸</div>
+        <span class="text-slate-400 group-hover:text-white">Expense</span>
       </button>
       <button onclick="openAddEntry('income')" class="flex flex-col items-center gap-1.5 active:scale-90 transition group">
-        <div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">💰</div>
-        <span class="text-slate-400 group-hover:text-white">Add Income</span>
-      </button>
-      <button onclick="triggerSmartParse()" class="flex flex-col items-center gap-1.5 active:scale-90 transition group">
-        <div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">📷</div>
-        <span class="text-slate-400 group-hover:text-white">Scan Bill</span>
+        <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">💰</div>
+        <span class="text-slate-400 group-hover:text-white">Income</span>
       </button>
       <button onclick="openAddGoalModal()" class="flex flex-col items-center gap-1.5 active:scale-90 transition group">
-        <div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">🎯</div>
-        <span class="text-slate-400 group-hover:text-white">Set Goal</span>
+        <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">🎯</div>
+        <span class="text-slate-400 group-hover:text-white">Goal</span>
       </button>
       <button onclick="openAddTaskModal()" class="flex flex-col items-center gap-1.5 active:scale-90 transition group">
-        <div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">📝</div>
-        <span class="text-slate-400 group-hover:text-white">New Task</span>
+        <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">📝</div>
+        <span class="text-slate-400 group-hover:text-white">Task</span>
+      </button>
+      <button onclick="syncWithGoogleSheets()" class="flex flex-col items-center gap-1.5 active:scale-90 transition group">
+        <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-lg text-emerald-400 group-hover:bg-emerald-500/20">🔄</div>
+        <span class="text-slate-400 group-hover:text-white">Sync</span>
       </button>
     </div>
 
-    <!-- Today's Tasks Section -->
-    <div class="glass-card p-5">
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="text-sm font-bold text-white flex items-center gap-2">
-          <span>Today's Tasks</span>
-        </h3>
-        <button onclick="openAddTaskModal()" class="text-slate-500 hover:text-white">•••</button>
+    <!-- Smart Tasks -->
+    <div class="glass-panel p-5 space-y-3">
+      <div class="flex justify-between items-center">
+        <h3 class="text-sm font-bold text-white">Smart Tasks</h3>
+        <button onclick="openAddTaskModal()" class="text-xs text-emerald-400 font-semibold">+ Add Task</button>
       </div>
-      <div id="todayTaskList" class="space-y-2.5">
-        <!-- Rendered via JS -->
-      </div>
+      <div id="todayTaskList" class="space-y-2.5"></div>
     </div>
 
     <!-- Recent Money Activity -->
-    <div class="glass-card p-5">
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="text-sm font-bold text-white">Recent Money Activity</h3>
-        <button onclick="switchTab('money')" class="text-slate-500 hover:text-white">•••</button>
+    <div class="glass-panel p-5 space-y-3">
+      <div class="flex justify-between items-center">
+        <h3 class="text-sm font-bold text-white">Recent Activity</h3>
+        <button onclick="switchTab('money')" class="text-xs text-slate-400">View All</button>
       </div>
-      <div id="recentTxList" class="space-y-3">
-        <!-- Rendered via JS -->
-      </div>
+      <div id="recentTxList" class="space-y-3"></div>
     </div>
   </main>
 
   <!-- TAB 2: MONEY & ACCOUNTS -->
   <main id="view-money" class="px-5 space-y-6 hidden">
     <div class="flex justify-between items-center">
-      <h2 class="text-xl font-bold">Accounts & Analytics</h2>
-      <button onclick="openAddEntry('income')" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">+ New Entry</button>
+      <h2 class="text-xl font-bold">Multi-Account Hub</h2>
+      <button onclick="openAddEntry('income')" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">+ Entry</button>
     </div>
 
     <!-- Multi Accounts Carousel -->
     <div class="flex gap-3 overflow-x-auto hide-scrollbar py-1">
-      <div class="glass-card p-4 min-w-[160px] flex-shrink-0 border-l-4 border-l-emerald-500">
+      <div class="glass-panel p-4 min-w-[150px] flex-shrink-0 border-l-4 border-l-emerald-500">
         <p class="text-[10px] text-slate-400 font-semibold uppercase">HDFC Bank</p>
-        <p class="text-lg font-bold my-1 text-white">₹3,400.00</p>
-        <p class="text-[10px] text-slate-500">**** 4509</p>
+        <p class="text-base font-bold my-1 text-white">₹3,400.00</p>
+        <p class="text-[10px] text-slate-500">Primary</p>
       </div>
-      <div class="glass-card p-4 min-w-[160px] flex-shrink-0 border-l-4 border-l-cyan-500">
+      <div class="glass-panel p-4 min-w-[150px] flex-shrink-0 border-l-4 border-l-cyan-500">
         <p class="text-[10px] text-slate-400 font-semibold uppercase">GPay Wallet</p>
-        <p class="text-lg font-bold my-1 text-white">₹1,120.75</p>
-        <p class="text-[10px] text-slate-500">UPI Linked</p>
+        <p class="text-base font-bold my-1 text-white">₹1,120.75</p>
+        <p class="text-[10px] text-slate-500">UPI</p>
       </div>
-      <div class="glass-card p-4 min-w-[160px] flex-shrink-0 border-l-4 border-l-amber-500">
+      <div class="glass-panel p-4 min-w-[150px] flex-shrink-0 border-l-4 border-l-amber-500">
         <p class="text-[10px] text-slate-400 font-semibold uppercase">Cash</p>
-        <p class="text-lg font-bold my-1 text-white">₹330.00</p>
+        <p class="text-base font-bold my-1 text-white">₹330.00</p>
         <p class="text-[10px] text-slate-500">Physical</p>
+      </div>
+      <div class="glass-panel p-4 min-w-[150px] flex-shrink-0 border-l-4 border-l-rose-500">
+        <p class="text-[10px] text-slate-400 font-semibold uppercase">Credit Card</p>
+        <p class="text-base font-bold my-1 text-white">₹0.00</p>
+        <p class="text-[10px] text-slate-500">Limit: ₹50k</p>
       </div>
     </div>
 
-    <div class="glass-card p-5 space-y-3">
+    <div class="glass-panel p-5 space-y-3">
       <h3 class="text-sm font-bold text-white">All Transactions</h3>
       <div id="fullTxList" class="space-y-3"></div>
     </div>
@@ -210,40 +227,23 @@
     <div id="goalsGrid" class="space-y-3"></div>
   </main>
 
-  <!-- TAB 4: CLIENTS & INVOICES -->
-  <main id="view-clients" class="px-5 space-y-5 hidden">
-    <div class="flex justify-between items-center">
-      <h2 class="text-xl font-bold">Freelance & Clients</h2>
-      <button onclick="createInvoiceModal()" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">+ Create Invoice</button>
-    </div>
-    <div class="glass-card p-5 space-y-3">
-      <div class="flex justify-between items-center">
-        <div>
-          <p class="font-bold text-sm">Design System Corp</p>
-          <p class="text-xs text-slate-400">INV-2026-0012 • Due 15 Nov</p>
-        </div>
-        <span class="text-xs px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400">Pending</span>
-      </div>
-    </div>
-  </main>
-
-  <!-- TAB 5: PROFILE & LOCK -->
+  <!-- TAB 4: PROFILE & ISOLATION -->
   <main id="view-profile" class="px-5 space-y-5 hidden">
-    <h2 class="text-xl font-bold">Profile & Isolation</h2>
-    <div class="glass-card p-5 text-center space-y-3">
+    <h2 class="text-xl font-bold">Profile & Settings</h2>
+    <div class="glass-panel p-5 text-center space-y-3">
       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256" class="w-20 h-20 rounded-full mx-auto border-2 border-emerald-500/50">
       <h3 class="font-bold text-lg">Rahul Sharma</h3>
-      <p id="profileUserTag" class="text-xs text-emerald-400 font-mono bg-emerald-500/10 py-1 px-3 rounded-full inline-block">User ID: Protected</p>
+      <p id="profileUserTag" class="text-xs text-emerald-400 font-mono bg-emerald-500/10 py-1 px-3 rounded-full inline-block">User ID: Isolated</p>
     </div>
 
-    <div class="glass-card p-5 space-y-4 text-sm">
+    <div class="glass-panel p-5 space-y-4 text-sm">
       <div class="flex justify-between items-center">
         <span>Biometric Lock</span>
         <input type="checkbox" id="bioLockToggle" onchange="toggleBioSetting(this)" class="w-5 h-5 accent-emerald-500">
       </div>
       <div class="flex justify-between items-center pt-3 border-t border-slate-700/50">
-        <span>Google Sheets Backend Sync</span>
-        <span id="syncStatusBadge" class="text-xs text-emerald-400">Active</span>
+        <span>Google Sheets Multi-User Sync</span>
+        <span id="syncStatusBadge" class="text-xs text-emerald-400">Connected</span>
       </div>
     </div>
   </main>
@@ -260,7 +260,7 @@
         <span class="text-[10px] font-bold">Money</span>
       </button>
       
-      <!-- CENTER FLOATING ACTION BUTTON (FAB) -->
+      <!-- CENTER FAB -->
       <div class="relative -top-5 flex-1 flex justify-center">
         <button onclick="openAddEntry('expense')" class="w-14 h-14 rounded-full fab-glow flex items-center justify-center text-2xl text-white font-bold active:scale-90 transition">
           +
@@ -271,59 +271,64 @@
         <span class="text-xl">🎯</span>
         <span class="text-[10px] font-bold">Goals</span>
       </button>
-      <button onclick="switchTab('clients')" id="nav-clients" class="flex-1 flex flex-col items-center gap-1 text-slate-400 transition">
-        <span class="text-xl">👥</span>
-        <span class="text-[10px] font-bold">Clients</span>
+      <button onclick="switchTab('profile')" id="nav-profile" class="flex-1 flex flex-col items-center gap-1 text-slate-400 transition">
+        <span class="text-xl">👤</span>
+        <span class="text-[10px] font-bold">Profile</span>
       </button>
     </nav>
   </div>
 
-  <!-- ENTRY MODAL (EXPENSE / INCOME) -->
+  <!-- ENTRY MODAL -->
   <div id="entryModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden flex items-end justify-center z-50">
-    <div class="glass-card w-full max-w-md p-6 rounded-t-[32px] bg-[#0F172A] border-t border-white/20 space-y-4">
+    <div class="glass-panel w-full max-w-md p-6 rounded-t-[32px] bg-[#0F172A] border-t border-white/20 space-y-4">
       <h3 id="entryModalTitle" class="text-lg font-bold">Add Transaction</h3>
-      <input type="number" id="inputAmount" placeholder="Amount (₹)" class="w-full p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 text-white font-bold text-lg outline-none">
-      <input type="text" id="inputNote" placeholder="Note (e.g. Netflix, Grocery, Client)" class="w-full p-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white text-sm outline-none">
-      <select id="inputAccount" class="w-full p-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white text-sm outline-none">
+      <input type="number" id="inputAmount" placeholder="Amount (₹)" class="w-full p-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-bold text-lg outline-none">
+      <input type="text" id="inputNote" placeholder="Note / Description" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none">
+      <select id="inputAccount" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none">
         <option value="HDFC Bank">HDFC Bank</option>
         <option value="GPay Wallet">GPay Wallet</option>
         <option value="Cash">Cash</option>
+        <option value="Credit Card">Credit Card</option>
+      </select>
+      <select id="linkedIncome" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none">
+        <option value="">Link to Income Source (Optional)</option>
+        <option value="Salary">Salary Source</option>
+        <option value="Freelance">Freelance Source</option>
       </select>
       <button onclick="saveTransaction()" class="w-full py-3.5 fab-glow rounded-xl font-bold text-white text-sm">Save & Sync</button>
       <button onclick="closeModal('entryModal')" class="w-full py-2 text-slate-400 text-xs">Cancel</button>
     </div>
   </div>
 
-  <!-- SETTINGS / BACKEND MODAL -->
+  <!-- SETTINGS MODAL -->
   <div id="settingsModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden flex items-end justify-center z-50">
-    <div class="glass-card w-full max-w-md p-6 rounded-t-[32px] bg-[#0F172A] border-t border-white/20 space-y-4">
-      <h3 class="text-lg font-bold">Google Sheets Data Sync</h3>
-      <p class="text-xs text-slate-400">Apna Apps Script Deployment Web App URL paste karein:</p>
+    <div class="glass-panel w-full max-w-md p-6 rounded-t-[32px] bg-[#0F172A] border-t border-white/20 space-y-4">
+      <h3 class="text-lg font-bold">Google Sheets Integration</h3>
+      <p class="text-xs text-slate-400">Multi-User Backend isolation endpoint setup:</p>
       <input type="text" id="inputScriptUrl" placeholder="https://script.google.com/macros/s/.../exec" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-xs text-white">
-      <button onclick="saveSettingsScript()" class="w-full py-3 fab-glow rounded-xl font-bold text-white text-sm">Connect Sheet</button>
+      <button onclick="saveSettingsScript()" class="w-full py-3 fab-glow rounded-xl font-bold text-white text-sm">Save Sync URL</button>
       <button onclick="closeModal('settingsModal')" class="w-full py-2 text-slate-400 text-xs">Close</button>
     </div>
   </div>
 
   <script>
-    // CORE APPLICATION STATE
-    let activeTab = 'today';
     let isPrivate = false;
     let entryType = 'expense';
+    let bioEnabled = false;
     
     let db = {
-      user: { id: 'USER_' + Math.random().toString(36).substring(5), name: 'Rahul' },
+      user: { id: localStorage.getItem('db_user_id') || 'USER_' + Math.random().toString(36).substring(5) },
       netBalance: 4850.75,
       monthlyInc: 1200.30,
       monthlyExp: 740.10,
       tasks: [
-        { id: 1, title: 'Review Client Invoice - INV-0012', category: 'work', done: true },
-        { id: 2, title: 'Physics DPP High #study', category: 'study', done: false },
-        { id: 3, title: 'Go for a 20min run', category: 'health', done: false }
+        { id: 1, title: 'Review Client Invoice #work', done: true, tag: 'work' },
+        { id: 2, title: 'Physics DPP High #study', done: false, tag: 'study' },
+        { id: 3, title: 'Go for 20min run #health', done: false, tag: 'health' }
       ],
       transactions: [
-        { id: 1, note: 'Netflix Subscription', category: 'Entertainment', amount: 15.99, type: 'expense', date: 'Aow 25, 2026', icon: '🍿' },
-        { id: 2, note: 'Salary Deposit', category: 'Income', amount: 2500.00, type: 'income', date: 'Apr 20, 2026', icon: '💼' }
+        { id: 1, note: 'Netflix Subscription', amount: 15.99, type: 'expense', account: 'HDFC Bank', date: 'Just now' },
+        { id: 2, note: 'Salary Deposit', amount: 2500.00, type: 'income', account: 'HDFC Bank', date: 'Yesterday' }
       ],
       goals: [
         { title: 'New Laptop', current: 15000, target: 50000 },
@@ -331,33 +336,25 @@
       ]
     };
 
-    // INITIALIZATION
+    localStorage.setItem('db_user_id', db.user.id);
+
     window.onload = () => {
       document.getElementById('profileUserTag').innerText = `User ID: ${db.user.id}`;
+      document.getElementById('inputScriptUrl').value = localStorage.getItem('gsheet_url') || '';
       renderApp();
     };
 
-    // NAVIGATION SYSTEM
     function switchTab(tabId) {
-      activeTab = tabId;
-      ['today', 'money', 'goals', 'clients', 'profile'].forEach(t => {
+      ['today', 'money', 'goals', 'profile'].forEach(t => {
         document.getElementById(`view-${t}`).classList.add('hidden');
         const navBtn = document.getElementById(`nav-${t}`);
-        if(navBtn) {
-          navBtn.classList.remove('text-emerald-400');
-          navBtn.classList.add('text-slate-400');
-        }
+        if(navBtn) { navBtn.classList.remove('text-emerald-400'); navBtn.classList.add('text-slate-400'); }
       });
-
       document.getElementById(`view-${tabId}`).classList.remove('hidden');
       const activeNav = document.getElementById(`nav-${tabId}`);
-      if(activeNav) {
-        activeNav.classList.remove('text-slate-400');
-        activeNav.classList.add('text-emerald-400');
-      }
+      if(activeNav) { activeNav.classList.remove('text-slate-400'); activeNav.classList.add('text-emerald-400'); }
     }
 
-    // PRIVACY TOGGLE
     function togglePrivacy() {
       isPrivate = !isPrivate;
       document.getElementById('displayNetBalance').innerText = isPrivate ? '••••••••' : `₹${db.netBalance.toFixed(2)}`;
@@ -365,28 +362,28 @@
       document.getElementById('displayMonthlyExp').innerText = isPrivate ? '••••' : `₹${db.monthlyExp.toFixed(2)}`;
     }
 
-    // RENDER ENGINE
     function renderApp() {
-      // Today Tasks
-      const taskContainer = document.getElementById('todayTaskList');
-      taskContainer.innerHTML = db.tasks.map(t => `
-        <div onclick="toggleTask(${t.id})" class="glass-card-subtle p-3 flex items-center gap-3 cursor-pointer">
-          <div class="w-5 h-5 rounded-md border flex items-center justify-center ${t.done ? 'bg-emerald-500 border-emerald-400 text-black font-bold text-xs' : 'border-slate-600'}">
-            ${t.done ? '✓' : ''}
+      // Tasks
+      document.getElementById('todayTaskList').innerHTML = db.tasks.map(t => `
+        <div onclick="toggleTask(${t.id})" class="glass-card-subtle p-3 rounded-xl flex items-center justify-between cursor-pointer">
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-md border flex items-center justify-center ${t.done ? 'bg-emerald-500 border-emerald-400 text-black font-bold text-xs' : 'border-slate-600'}">
+              ${t.done ? '✓' : ''}
+            </div>
+            <span class="text-xs ${t.done ? 'line-through text-slate-500' : 'text-slate-200'}">${t.title}</span>
           </div>
-          <span class="text-xs ${t.done ? 'line-through text-slate-500' : 'text-slate-200'}">${t.title}</span>
+          <span class="text-[10px] px-2 py-0.5 rounded-md ${t.tag === 'work' ? 'bg-blue-500/20 text-blue-400' : t.tag === 'study' ? 'bg-purple-500/20 text-purple-400' : 'bg-emerald-500/20 text-emerald-400'}">${t.tag}</span>
         </div>
       `).join('');
 
-      // Money Activity Today
-      const recentTx = document.getElementById('recentTxList');
-      recentTx.innerHTML = db.transactions.slice(0, 3).map(tx => `
-        <div class="flex justify-between items-center text-xs">
+      // Recent Activity
+      const txHTML = db.transactions.map(tx => `
+        <div class="flex justify-between items-center text-xs p-2.5 glass-card-subtle rounded-xl">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-base">${tx.icon || '💸'}</div>
+            <div class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center text-sm">${tx.type === 'income' ? '💰' : '💸'}</div>
             <div>
               <p class="font-bold text-white">${tx.note}</p>
-              <p class="text-[10px] text-slate-400">${tx.date}</p>
+              <p class="text-[10px] text-slate-400">${tx.account} • ${tx.date}</p>
             </div>
           </div>
           <span class="font-bold ${tx.type === 'income' ? 'text-emerald-400' : 'text-rose-400'}">
@@ -395,29 +392,14 @@
         </div>
       `).join('');
 
-      // Full Transactions List
-      const fullTx = document.getElementById('fullTxList');
-      fullTx.innerHTML = db.transactions.map(tx => `
-        <div class="flex justify-between items-center text-xs p-3 glass-card-subtle">
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-base">${tx.icon || '💸'}</div>
-            <div>
-              <p class="font-bold text-white">${tx.note}</p>
-              <p class="text-[10px] text-slate-400">${tx.date}</p>
-            </div>
-          </div>
-          <span class="font-bold ${tx.type === 'income' ? 'text-emerald-400' : 'text-rose-400'}">
-            ${tx.type === 'income' ? '+' : '-'}₹${tx.amount.toFixed(2)}
-          </span>
-        </div>
-      `).join('');
+      document.getElementById('recentTxList').innerHTML = txHTML;
+      document.getElementById('fullTxList').innerHTML = txHTML;
 
-      // Goals Render
-      const goalsContainer = document.getElementById('goalsGrid');
-      goalsContainer.innerHTML = db.goals.map(g => {
+      // Goals
+      document.getElementById('goalsGrid').innerHTML = db.goals.map(g => {
         const pct = Math.min(100, Math.round((g.current / g.target) * 100));
         return `
-          <div class="glass-card p-4 space-y-2">
+          <div class="glass-panel p-4 space-y-2">
             <div class="flex justify-between text-xs">
               <span class="font-bold text-white">${g.title}</span>
               <span class="text-emerald-400 font-bold">${pct}%</span>
@@ -431,7 +413,6 @@
       }).join('');
     }
 
-    // INTERACTION HANDLERS
     function toggleTask(id) {
       db.tasks = db.tasks.map(t => t.id === id ? { ...t, done: !t.done } : t);
       renderApp();
@@ -439,54 +420,40 @@
 
     function openAddEntry(type) {
       entryType = type;
-      document.getElementById('entryModalTitle').innerText = type === 'income' ? 'Add Income Entry' : 'Add Expense Entry';
+      document.getElementById('entryModalTitle').innerText = type === 'income' ? 'Add Income' : 'Add Expense';
       openModal('entryModal');
     }
 
     function saveTransaction() {
       const amt = parseFloat(document.getElementById('inputAmount').value);
-      const note = document.getElementById('inputNote').value || (entryType === 'income' ? 'Income Deposit' : 'Expense');
+      const note = document.getElementById('inputNote').value || entryType;
+      const account = document.getElementById('inputAccount').value;
 
-      if (!amt) return alert('Valid amount daalein');
+      if (!amt) return alert('Enter valid amount');
 
-      db.transactions.unshift({
-        id: Date.now(),
-        note: note,
-        amount: amt,
-        type: entryType,
-        date: 'Just Now',
-        icon: entryType === 'income' ? '💰' : '💸'
-      });
+      const entry = { id: Date.now(), note, amount: amt, type: entryType, account, date: 'Just Now' };
+      db.transactions.unshift(entry);
 
-      if (entryType === 'income') {
-        db.netBalance += amt;
-        db.monthlyInc += amt;
-      } else {
-        db.netBalance -= amt;
-        db.monthlyExp += amt;
-      }
+      if (entryType === 'income') { db.netBalance += amt; db.monthlyInc += amt; }
+      else { db.netBalance -= amt; db.monthlyExp += amt; }
 
-      document.getElementById('inputAmount').value = '';
-      document.getElementById('inputNote').value = '';
-      
       closeModal('entryModal');
-      togglePrivacy(); togglePrivacy(); // Refresh values
+      togglePrivacy(); togglePrivacy();
       renderApp();
+      syncWithGoogleSheets(entry);
     }
 
-    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
-    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-
     function openAddTaskModal() {
-      const title = prompt('Naya Task Daalein:');
+      const title = prompt('Smart Task Entry (e.g., Read Book #study):');
       if (title) {
-        db.tasks.push({ id: Date.now(), title, category: 'general', done: false });
+        const tag = title.includes('#work') ? 'work' : title.includes('#study') ? 'study' : 'health';
+        db.tasks.push({ id: Date.now(), title, done: false, tag });
         renderApp();
       }
     }
 
     function openAddGoalModal() {
-      const title = prompt('Goal Title:');
+      const title = prompt('Goal Name:');
       const target = parseFloat(prompt('Target Amount (₹):'));
       if (title && target) {
         db.goals.push({ title, current: 0, target });
@@ -494,13 +461,31 @@
       }
     }
 
-    function triggerSmartParse() {
-      alert('Smart Scanner: Bill/Receipt Image Upload Karke Auto-Parse Karne Ka Module Ready Hai.');
+    function saveSettingsScript() {
+      const url = document.getElementById('inputScriptUrl').value;
+      localStorage.setItem('gsheet_url', url);
+      alert('Backend Sync URL Saved!');
+      closeModal('settingsModal');
     }
 
-    function toggleLock() {
-      alert('App Locked via Biometrics/PIN');
+    async function syncWithGoogleSheets(payload) {
+      const url = localStorage.getItem('gsheet_url');
+      if (!url) return;
+      try {
+        await fetch(url, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: db.user.id, action: 'ADD_TRANSACTION', payload: payload || db.transactions[0] })
+        });
+      } catch(e) { console.error(e); }
     }
+
+    function lockApp() { document.getElementById('lockScreen').classList.remove('hidden'); }
+    function unlockApp() { document.getElementById('lockScreen').classList.add('hidden'); }
+    function toggleBioSetting(el) { bioEnabled = el.checked; }
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
   </script>
 </body>
 </html>
