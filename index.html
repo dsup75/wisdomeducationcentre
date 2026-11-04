@@ -1,545 +1,80 @@
-<!-- ============================================================
-     APP ROOT — screens
-     ============================================================ -->
-<div id="app">
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepBoost Life</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'SF Pro Display', -apple-system, sans-serif; }
+        .ios-card {
+            background: rgba(28, 28, 30, 0.85);
+            backdrop-filter: blur(16px);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen pb-24">
 
-  <!-- ============================================================
-       WELCOME / LOGIN SCREEN (visible by default until logged-in)
-       ============================================================ -->
-  <section id="screen-welcome" class="screen active">
-    <div class="welcome-logo">D</div>
-    <h1 class="welcome-title">DeepBoost Life</h1>
-    <p class="welcome-tagline">Plan · Save · Study · Achieve</p>
-
-    <div class="welcome-card card">
-      <!-- Tabs -->
-      <div class="welcome-tabs" id="welcome-tabs">
-        <button type="button" class="welcome-tab active" data-tab="signup">Create account</button>
-        <button type="button" class="welcome-tab" data-tab="login">Log in</button>
-      </div>
-
-      <!-- CREATE ACCOUNT FORM -->
-      <form id="signup-form" class="flex-col" autocomplete="off">
-        <div class="field">
-          <label class="label" for="signup-name">Full name</label>
-          <input class="input" id="signup-name" type="text" placeholder="Deependra Singh" autocomplete="name" required>
+    <!-- Header -->
+    <header class="p-5 flex justify-between items-center sticky top-0 z-40 bg-black/70 backdrop-blur-md">
+        <div>
+            <h1 class="text-xl font-bold text-emerald-400 flex items-center gap-2">
+                DeepBoost <span class="text-[10px] bg-emerald-500/20 px-2 py-0.5 rounded-full">LIFE</span>
+            </h1>
+            <p class="text-[10px] text-gray-400">All-In-One Productivity Hub</p>
         </div>
-        <div class="field">
-          <label class="label" for="signup-username">Username</label>
-          <input class="input" id="signup-username" type="text" placeholder="deep1234" autocomplete="username" inputmode="text" autocapitalize="none" spellcheck="false" required>
-          <div class="hint">4–20 characters, lowercase only</div>
-        </div>
-        <div class="field">
-          <label class="label" for="signup-password">Password</label>
-          <input class="input" id="signup-password" type="password" placeholder="At least 6 characters" autocomplete="new-password" minlength="6" required>
-        </div>
-        <div class="field">
-          <label class="label" for="signup-pin">App PIN (optional)</label>
-          <input class="input" id="signup-pin" type="tel" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="4-digit PIN for quick unlock">
-        </div>
-        <label class="check-row mb-3">
-          <input type="checkbox" id="signup-agree">
-          <span>Your data is saved on this phone and backed up to the DeepBoost Life Google Sheet, run by the app owner. Other users cannot see your data.</span>
-        </label>
-        <div class="error-text hidden" id="signup-error"></div>
-        <button type="submit" class="btn btn-primary btn-block" id="signup-submit">Create account</button>
-      </form>
-
-      <!-- LOGIN FORM -->
-      <form id="login-form" class="flex-col hidden" autocomplete="off">
-        <div class="field">
-          <label class="label" for="login-username">Username</label>
-          <input class="input" id="login-username" type="text" placeholder="Your username" autocomplete="username" autocapitalize="none" spellcheck="false" required>
-        </div>
-        <div class="field">
-          <label class="label" for="login-password">Password</label>
-          <input class="input" id="login-password" type="password" placeholder="Your password" autocomplete="current-password" required>
-        </div>
-        <div class="error-text hidden" id="login-error"></div>
-        <button type="submit" class="btn btn-primary btn-block" id="login-submit">Log in</button>
-        <div class="hint text-center mt-2">On a new phone? Logging in downloads all your data.</div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       TODAY SCREEN (home)
-       ============================================================ -->
-  <section id="screen-today" class="screen">
-    <!-- 1. Profile header -->
-    <header class="topbar">
-      <div class="topbar-left">
-        <div class="avatar" id="today-avatar" role="button" tabindex="0" aria-label="Profile menu">D</div>
-        <div class="min-w-0">
-          <div class="brand-title truncate">DeepBoost Life</div>
-          <div class="brand-sub truncate">Plan · Save · Study · Achieve</div>
-        </div>
-      </div>
-      <div class="topbar-actions">
-        <span class="sync-dot" id="sync-dot" title="Sync status: idle" aria-label="Sync status"></span>
-        <button type="button" class="icon-btn" id="btn-search" aria-label="Search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <button type="button" class="icon-btn" id="btn-bell" aria-label="Alerts">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-          <span class="dot hidden" id="bell-dot"></span>
-        </button>
-      </div>
+        <button onclick="toggleTheme()" class="p-2.5 rounded-full ios-card text-emerald-400 text-xs">Theme</button>
     </header>
 
-    <div class="content">
-      <!-- 2. Greeting + date pill -->
-      <div class="mb-3">
-        <h2 class="text-lg font-ext" id="today-greeting">Good Morning 👋</h2>
-        <p class="text-sm text-muted mt-1" id="today-motivation">Let's boost your day.</p>
-      </div>
-      <div class="mb-3">
-        <span class="chip chip-sm" id="today-date">—</span>
-      </div>
-
-      <!-- 3. Balance card -->
-      <div class="balance-card" id="balance-card">
-        <div class="balance-label">
-          <span>Total Balance</span>
-          <button type="button" class="eye-btn" id="btn-eye" aria-label="Toggle amount visibility">
-            <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </button>
-        </div>
-        <div class="balance-amount num" id="balance-amount">₹ ••••</div>
-        <div class="balance-meta">
-          <span id="balance-accounts">0 accounts</span>
-          <span id="balance-cards" class="hidden"></span>
-        </div>
-        <div class="sparkline-wrap">
-          <canvas id="sparkline" width="600" height="80" style="width:100%;height:40px;display:block;"></canvas>
-        </div>
-      </div>
-
-      <!-- 4. Four tiles -->
-      <div class="tiles-grid">
-        <button type="button" class="tile" data-tile="income" aria-label="Income this month">
-          <span class="tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </span>
-          <span class="tile-label">Income</span>
-          <span class="tile-value num" id="tile-income">₹0</span>
-          <span class="tile-delta" id="tile-income-delta">—</span>
-        </button>
-        <button type="button" class="tile" data-tile="expense" aria-label="Expenses this month">
-          <span class="tile-icon expense">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
-          </span>
-          <span class="tile-label">Expense</span>
-          <span class="tile-value num" id="tile-expense">₹0</span>
-          <span class="tile-delta" id="tile-expense-delta">—</span>
-        </button>
-        <button type="button" class="tile" data-tile="goals" aria-label="Goals saved">
-          <span class="tile-icon goal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          </span>
-          <span class="tile-label">Goals</span>
-          <span class="tile-value num" id="tile-goals">0%</span>
-          <span class="tile-delta" id="tile-goals-delta">—</span>
-        </button>
-        <button type="button" class="tile" data-tile="dues" aria-label="Client dues">
-          <span class="tile-icon due">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </span>
-          <span class="tile-label">Dues</span>
-          <span class="tile-value num" id="tile-dues">₹0</span>
-          <span class="tile-delta" id="tile-dues-delta">—</span>
-        </button>
-      </div>
-
-      <!-- 5. Upcoming + Quick actions side by side -->
-      <div class="two-col mt-3">
-        <div class="card card-sm">
-          <div class="flex items-center justify-between mb-2">
-            <span class="section-title">Upcoming</span>
-            <button type="button" class="section-link" id="link-upcoming-all">See All</button>
-          </div>
-          <div class="upcoming-list" id="upcoming-list">
-            <div class="empty" style="padding:12px 0;">
-              <div class="empty-sub">Nothing scheduled</div>
+    <!-- Main Content -->
+    <main class="px-4 space-y-4 max-w-md mx-auto">
+        <!-- Finance Card -->
+        <div class="ios-card p-5 border-l-4 border-emerald-500 space-y-2">
+            <p class="text-xs text-gray-400">Total Net Balance</p>
+            <h2 class="text-3xl font-extrabold">₹ 1,45,200</h2>
+            <div class="grid grid-cols-2 pt-2 border-t border-white/10 text-xs">
+                <div><span class="text-gray-400">Income:</span> <p class="text-emerald-400 font-bold">₹ 45,000</p></div>
+                <div><span class="text-gray-400">Expenses:</span> <p class="text-red-400 font-bold">₹ 12,400</p></div>
             </div>
-          </div>
         </div>
-        <div class="card card-sm">
-          <div class="mb-2"><span class="section-title">Quick Actions</span></div>
-          <div class="quick-list">
-            <button type="button" class="quick-btn" data-quick="add-expense">
-              <span class="quick-btn-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-              <span class="quick-btn-text">Add Expense</span>
-            </button>
-            <button type="button" class="quick-btn" data-quick="add-income">
-              <span class="quick-btn-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-              <span class="quick-btn-text">Add Income</span>
-            </button>
-            <button type="button" class="quick-btn" data-quick="new-task">
-              <span class="quick-btn-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-              </span>
-              <span class="quick-btn-text">New Task</span>
-            </button>
-            <button type="button" class="quick-btn" data-quick="add-goal">
-              <span class="quick-btn-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-              </span>
-              <span class="quick-btn-text">Add to Goal</span>
-            </button>
-          </div>
-        </div>
-      </div>
 
-      <!-- 6. This Week bar chart -->
-      <div class="card mt-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">This Week</span>
-          <button type="button" class="section-link" id="link-view-report">View Report</button>
+        <!-- Quick Modules -->
+        <div class="ios-card p-4 space-y-2">
+            <h3 class="text-sm font-bold text-emerald-400">Study & Business Quick View</h3>
+            <p class="text-xs text-gray-300">Physics Rotational Dynamics - 1.5 hrs completed</p>
+            <p class="text-xs text-gray-300">Apex Studio Invoices - Waiting Approval</p>
         </div>
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-sm text-muted">Weekly total</span>
-          <span class="text-sm font-bold num" id="week-total">₹0</span>
-        </div>
-        <div class="bar-chart" id="week-chart">
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">M</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">T</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">W</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">T</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">F</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">S</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">S</span></div>
-        </div>
-      </div>
 
-      <!-- 7. Recent entries -->
-      <div class="card mt-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Recent</span>
-          <button type="button" class="section-link" id="link-all-transactions">See All</button>
+        <!-- Sheets Sync Settings -->
+        <div class="ios-card p-4 space-y-2">
+            <h3 class="text-sm font-bold text-emerald-400">Google Sheets Sync</h3>
+            <input type="text" id="sheetUrl" placeholder="Apps Script Web App URL" class="w-full bg-white/5 border border-white/10 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+            <button onclick="saveSheetUrl()" class="w-full bg-emerald-500 text-white font-semibold py-2.5 rounded-xl text-xs">Save URL</button>
         </div>
-        <div class="list" id="recent-list">
-          <div class="empty">
-            <div class="empty-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-            </div>
-            <div class="empty-title">No entries yet</div>
-            <div class="empty-sub">Tap the + button to add your first entry.</div>
-          </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-md">
+        <div class="ios-card flex justify-around py-3 px-4 text-xs font-medium text-emerald-400">
+            <span>Dashboard</span>
+            <span>Finance</span>
+            <span>Study</span>
+            <span>Business</span>
         </div>
-      </div>
     </div>
-  </section>
 
-  <!-- ============================================================
-       MONEY SCREEN
-       ============================================================ -->
-  <section id="screen-money" class="screen">
-    <header class="topbar">
-      <div class="topbar-left">
-        <div class="min-w-0">
-          <div class="brand-title">Money</div>
-          <div class="brand-sub">Accounts · Budgets · Insights</div>
-        </div>
-      </div>
-    </header>
-
-    <div class="content">
-      <!-- Month switcher -->
-      <div class="flex items-center justify-between mb-3">
-        <button type="button" class="btn btn-sm btn-ghost" id="money-prev-month" aria-label="Previous month">‹</button>
-        <div class="text-center">
-          <div class="text-sm font-bold" id="money-month-label">—</div>
-        </div>
-        <button type="button" class="btn btn-sm btn-ghost" id="money-next-month" aria-label="Next month">›</button>
-      </div>
-
-      <!-- Filters -->
-      <div class="chip-row mb-3" id="money-filters">
-        <button type="button" class="chip active" data-money-filter="all">All</button>
-        <button type="button" class="chip" data-money-filter="business">Business</button>
-        <button type="button" class="chip" data-money-filter="personal">Personal</button>
-      </div>
-
-      <!-- Summary stats -->
-      <div class="stat-grid mb-3">
-        <div class="stat-box">
-          <div class="stat-label">Income</div>
-          <div class="stat-value text-income num" id="money-income">₹0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Expense</div>
-          <div class="stat-value text-expense num" id="money-expense">₹0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Net</div>
-          <div class="stat-value num" id="money-net">₹0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Avg / day</div>
-          <div class="stat-value num" id="money-avg">₹0</div>
-        </div>
-      </div>
-
-      <button type="button" class="btn btn-primary btn-block mb-3" id="btn-open-reports">Open Reports & Exports</button>
-
-      <!-- Accounts -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Accounts</span>
-          <button type="button" class="section-link" id="btn-add-account">+ Add</button>
-        </div>
-        <div class="list" id="accounts-list"></div>
-      </div>
-
-      <!-- Budgets -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Budgets</span>
-          <button type="button" class="section-link" id="btn-add-budget">+ Add</button>
-        </div>
-        <div id="budgets-list"></div>
-      </div>
-
-      <!-- Goals -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Goals</span>
-          <button type="button" class="section-link" id="btn-add-goal-main">+ Add</button>
-        </div>
-        <div id="goals-list"></div>
-      </div>
-
-      <!-- Splits & loans -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Splits & Loans</span>
-          <button type="button" class="section-link" id="btn-add-split">+ Add</button>
-        </div>
-        <div class="list" id="splits-list"></div>
-      </div>
-
-      <!-- Repeating & bills -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Repeating & Bills</span>
-          <button type="button" class="section-link" id="btn-add-recurring">+ Add</button>
-        </div>
-        <div class="text-xs text-muted mb-2" id="recurring-total">—</div>
-        <div class="list" id="recurring-list"></div>
-      </div>
-
-      <!-- Clients -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Clients</span>
-          <button type="button" class="section-link" id="btn-add-client">+ Add</button>
-        </div>
-        <div class="list" id="clients-list"></div>
-      </div>
-
-      <!-- Category bars -->
-      <div class="card mb-3">
-        <div class="section-title mb-2">Top categories</div>
-        <div id="category-bars"></div>
-      </div>
-
-      <!-- Spent via -->
-      <div class="card mb-3">
-        <div class="section-title mb-2">Spent via</div>
-        <div id="app-bars"></div>
-      </div>
-
-      <!-- Heatmap -->
-      <div class="card mb-3">
-        <div class="section-title mb-2">Spending heatmap</div>
-        <div class="heatmap" id="heatmap"></div>
-        <div class="heat-header">
-          <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
-        </div>
-      </div>
-
-      <!-- Transactions -->
-      <div class="card">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Transactions</span>
-          <button type="button" class="section-link" id="btn-filter-transactions">Filter</button>
-        </div>
-        <div class="list" id="money-transactions"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       STUDY SCREEN
-       ============================================================ -->
-  <section id="screen-study" class="screen">
-    <header class="topbar">
-      <div class="topbar-left">
-        <div class="min-w-0">
-          <div class="brand-title">Study</div>
-          <div class="brand-sub">Focus · Exams · Topics</div>
-        </div>
-      </div>
-    </header>
-
-    <div class="content">
-      <!-- Exam countdowns -->
-      <div class="section-head">
-        <span class="section-title">Exam countdowns</span>
-        <button type="button" class="section-link" id="btn-add-exam">+ Add</button>
-      </div>
-      <div class="flex-col gap-2 mb-3" id="exam-list">
-        <div class="empty" style="padding:14px 0;">
-          <div class="empty-sub">No exams added yet. Tap “+ Add”.</div>
-        </div>
-      </div>
-
-      <!-- Focus timer -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Focus Timer</span>
-          <span class="text-xs text-muted" id="timer-status">Idle</span>
-        </div>
-        <div class="timer-display" id="timer-display">25:00</div>
-        <div class="flex gap-2 mt-2 mb-2 flex-wrap" id="timer-presets">
-          <button type="button" class="chip chip-sm" data-timer="15">15m</button>
-          <button type="button" class="chip chip-sm active" data-timer="25">25m</button>
-          <button type="button" class="chip chip-sm" data-timer="45">45m</button>
-          <button type="button" class="chip chip-sm" data-timer="60">60m</button>
-        </div>
-        <select class="select mb-2" id="timer-subject">
-          <option value="Physics">Physics</option>
-          <option value="Chemistry">Chemistry</option>
-          <option value="Maths">Maths</option>
-          <option value="Hindi">Hindi</option>
-          <option value="English">English</option>
-        </select>
-        <div class="flex gap-2">
-          <button type="button" class="btn btn-primary flex-1" id="btn-timer-start">Start</button>
-          <button type="button" class="btn btn-secondary" id="btn-timer-reset">Reset</button>
-        </div>
-      </div>
-
-      <!-- Weekly study chart -->
-      <div class="card mb-3">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Weekly study</span>
-          <span class="text-xs text-muted num" id="study-week-total">0m</span>
-        </div>
-        <div class="bar-chart" id="study-week-chart">
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">M</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">T</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">W</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">T</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">F</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">S</span></div>
-          <div class="bar-col"><div class="bar"></div><span class="bar-label">S</span></div>
-        </div>
-      </div>
-
-      <!-- Topics checklist -->
-      <div class="card">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Topics</span>
-          <button type="button" class="section-link" id="btn-add-topic">+ Add</button>
-        </div>
-        <div class="list" id="topic-list">
-          <div class="empty" style="padding:14px 0;">
-            <div class="empty-sub">No topics yet.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       TASKS SCREEN
-       ============================================================ -->
-  <section id="screen-tasks" class="screen">
-    <header class="topbar">
-      <div class="topbar-left">
-        <div class="min-w-0">
-          <div class="brand-title">Tasks</div>
-          <div class="brand-sub">Smart · Habits · Focus</div>
-        </div>
-      </div>
-    </header>
-
-    <div class="content">
-      <!-- Smart input -->
-      <div class="card mb-3">
-        <label class="label" for="task-smart-input">New task</label>
-        <input class="input" id="task-smart-input" placeholder='e.g. "call client tomorrow 5pm !high #work"'>
-        <div class="mt-2" id="task-preview"></div>
-        <button type="button" class="btn btn-primary btn-block mt-2" id="btn-add-task">Add task</button>
-      </div>
-
-      <!-- Filters -->
-      <div class="chip-row mb-3" id="task-filters">
-        <button type="button" class="chip active" data-task-filter="all">All</button>
-        <button type="button" class="chip" data-task-filter="today">Today</button>
-        <button type="button" class="chip" data-task-filter="work">Work</button>
-        <button type="button" class="chip" data-task-filter="study">Study</button>
-        <button type="button" class="chip" data-task-filter="health">Health</button>
-        <button type="button" class="chip" data-task-filter="personal">Personal</button>
-      </div>
-
-      <!-- Task list -->
-      <div class="card mb-3">
-        <div class="list" id="tasks-list">
-          <div class="empty">
-            <div class="empty-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <div class="empty-title">No tasks yet</div>
-            <div class="empty-sub">Type above to add your first smart task.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Habits -->
-      <div class="card">
-        <div class="flex items-center justify-between mb-2">
-          <span class="section-title">Habits</span>
-          <button type="button" class="section-link" id="btn-add-habit">+ Add</button>
-        </div>
-        <div id="habits-list">
-          <div class="empty" style="padding:14px 0;">
-            <div class="empty-sub">No habits yet.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- ============================================================
-     BOTTOM NAV — replaces the empty <nav> from PART 1
-     ============================================================ -->
-<nav id="bottom-nav" class="bottom-nav hidden" aria-label="Main navigation">
-  <button type="button" class="nav-item active" data-nav="today">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    <span>Today</span>
-  </button>
-  <button type="button" class="nav-item" data-nav="money">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-    <span>Money</span>
-  </button>
-  <button type="button" class="fab" id="fab-add" aria-label="Add new">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-  </button>
-  <button type="button" class="nav-item" data-nav="study">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-    <span>Study</span>
-  </button>
-  <button type="button" class="nav-item" data-nav="tasks">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-    <span>Tasks</span>
-  </button>
-</nav>
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+        function saveSheetUrl() {
+            const url = document.getElementById('sheetUrl').value;
+            localStorage.setItem('apps_script_url', url);
+            alert('Google Sheets URL Saved Successfully!');
+        }
+    </script>
+</body>
+</html>
