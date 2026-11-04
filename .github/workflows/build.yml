@@ -1,0 +1,21 @@
+name: Build APK
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Package Static Files
+        run: |
+          mkdir -p dist
+          cp index.html dist/
+          echo "Build Successful!"
